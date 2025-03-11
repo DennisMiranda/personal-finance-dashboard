@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/output.css" rel="stylesheet" />
+    <title>Registro - Nómada Wallet</title>
+    <!-- <script src="https://unpkg.com/@tailwindcss/browser@4"></script> -->
+    <link rel="stylesheet" href="../css/register.css" />
+  </head>
+  <body>
+    <div class="flex">
+      <section
+        class="grid content-center justify-items-center bg-gray-200 h-screen w-[100%] lg:w-1/2 py-20"
+      >
+        <div class="w-80">
+          <h2 class="text-center font-extrabold text-5xl mb-7 text-[#2f2cd8]">
+            Regístrate
+          </h2>
+          <form class="flex flex-col" action="login">
+            <label class="font-semibold" for="name">Nombre y apellido</label>
+            <input
+              class="border-1 rounded-md h-10"
+              type="name"
+              id="name"
+              name="name"
+              required
+            />
+
+            <label class="mt-3 font-semibold" for="username">Alias</label>
+            <input
+              class="border-1 rounded-md h-10"
+              type="username"
+              id="username"
+              name="username"
+              required
+            />
+
+            <label class="mt-3 font-semibold" for="email">
+              Correo electrónico
+            </label>
+            <input
+              class="border-1 rounded-md h-10"
+              type="email"
+              id="email"
+              name="email"
+              required
+            />
+
+            <label class="mt-3 font-semibold" for="password">Contraseña</label>
+            <input
+              class="border-1 rounded-md h-10"
+              type="password"
+              id="password"
+              name="password"
+              required
+            />
+
+            <label class="mt-3 font-semibold" for="password">
+              Confirmar contraseña
+            </label>
+            <input
+              class="border-1 rounded-md h-10"
+              type="password"
+              id="re-password"
+              name="password"
+              required
+            />
+
+            <label class="my-3 font-semibold" for="remember">
+              <input type="checkbox" name="remember" />
+              Acepto los terminos y condiciones
+            </label>
+
+            <button
+              class="rounded-md py-2 mt-2 font-bold bg-[#2f2cd8] text-gray-50"
+              type="submit"
+            >
+              Registrarse
+            </button>
+
+            <div class="flex justify-center mt-4 gap-2">
+              <h4>¿Ya tienes cuenta?</h4>
+              <a class="font-bold" href="login.html">Iniciar sesión</a>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="hidden bg-[#d5d5f7] h-screen lg:block lg:w-1/2">
+        <header class="flex items-center m-5 gap-2">
+          <img
+            src="../assets/img/Icono Finanza.png"
+            class="w-5 h-auto"
+            alt=""
+          />
+          <p class="font-bold">Nómada Wallet</p>
+        </header>
+        <div class="grid content-center justify-items-center my-10 mx-[15%]">
+          <h1 class="py-8 text-4xl text-center font-bold">
+            Simplicidad y control
+            <br />
+            para tu economía.
+          </h1>
+          <img class="w-100" src="../assets/img/Monitor-dashBoard.png" alt="" />
+          <p class="py-4 text-center font-bold text-2xl">
+            Tus sueños valen más que un
+            <br />
+            gasto impulsivo. ¡Planifica,
+            <br />
+            ahorra y hazlos realidad!
+          </p>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
