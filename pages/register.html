@@ -3,26 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../src/output.css" rel="stylesheet">
+    <link href="/css/output.css" rel="stylesheet">
     <title>Registro - Nómada Wallet</title>
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <!-- <script src="https://unpkg.com/@tailwindcss/browser@4"></script> -->
     <link rel="stylesheet" href="../css/register.css">
 </head>
 <body>
     <div class="flex">
-        <section class="hidden bg-[#d5d5f7] h-screen md:block md:w-1/2">
-            <header class="flex items-center m-5 gap-2">
-                <img src="../img/Icono Finanza.png" class="w-5 h-auto" alt="">
-                <p class="font-bold">Nómada Wallet</p>
-            </header>
-            <div class="grid content-center my-10 mx-[20%]">
-                <h1 class="py-8 text-4xl text-center font-bold">Simplicidad y control para tu economía.</h1>                
-                <img src="../img/Monitor-dashBoard.png" alt="">
-                <p class="py-4 text-center font-bold text-2xl">Tus sueños valen más que un gasto impulsivo. ¡Planifica, ahorra y hazlos realidad!</p>
-            </div>            
-        </section>
-    
-        <section class="grid content-center justify-items-center bg-gray-200 h-screen w-[100%] md:w-1/2 py-20">
+        <section class="grid content-center justify-items-center bg-gray-200 h-screen w-[100%] lg:w-1/2 py-20">
             <div class="w-80">
                 <h2 class="text-center font-extrabold text-5xl mb-7 text-[#2f2cd8]">Regístrate</h2>
                 <form class="flex flex-col" action="login">
@@ -48,11 +36,21 @@
                     <div class="flex justify-center mt-4 gap-2">
                         <h4>¿Ya tienes cuenta?</h4>
                         <a class="font-bold" href="login.html">Iniciar sesión</a>
-                    </div>
-                
+                    </div>            
                 </form>
-            </div>
-            
+            </div>           
+        </section>
+
+        <section class="hidden bg-[#d5d5f7] h-screen lg:block lg:w-1/2">
+            <header class="flex items-center m-5 gap-2">
+                <img src="../img/Icono Finanza.png" class="w-5 h-auto" alt="">
+                <p class="font-bold">Nómada Wallet</p>
+            </header>
+            <div class="grid content-center justify-items-center my-10 mx-[15%]">
+                <h1 class="py-8 text-4xl text-center font-bold">Simplicidad y control <br> para tu economía.</h1>                
+                <img class="w-100" src="../img/Monitor-dashBoard.png" alt="">
+                <p class="py-4 text-center font-bold text-2xl">Tus sueños valen más que un <br> gasto impulsivo. ¡Planifica, <br> ahorra y hazlos realidad!</p>
+            </div>            
         </section>
     </div>
     
