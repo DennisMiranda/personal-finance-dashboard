@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     alert('Inicio de sesión exitoso. Redirigiendo al dashboard...');
-    window.location.href = '/src/pages/dashboard.html';
+    window.location.href = '../pages/dashboard.html';
   });
 
   // Comprobar si hay un usuario recordado y rellenar el campo email
