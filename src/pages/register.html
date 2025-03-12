@@ -9,15 +9,23 @@
     <link rel="stylesheet" href="../css/register.css" />
   </head>
   <body>
+    <header class="flex items-center m-5 gap-2 absolute">
+      <img
+        src="../../src/assets/img/Logo-yapac-alpha.png"
+        class="w-10"
+        alt=""
+      />
+      <p class="font-bold">Yapac Wallet</p>
+    </header>
     <div class="flex">
       <section
-        class="grid content-center justify-items-center bg-gray-200 h-screen w-[100%] lg:w-1/2 py-20"
+        class="grid content-center justify-items-center bg-gray-200 h-screen w-[100%] lg:w-1/2"
       >
         <div class="w-80">
           <h2 class="text-center font-extrabold text-5xl mb-7 text-[#2f2cd8]">
             Regístrate
           </h2>
-          <form class="flex flex-col" action="login">
+          <form class="flex flex-col" action="login" id="registerForm">
             <label class="font-semibold" for="name">Nombre y apellido</label>
             <input
               class="border-1 rounded-md h-10"
@@ -68,13 +76,14 @@
             />
 
             <label class="my-3 font-semibold" for="remember">
-              <input type="checkbox" name="remember" />
+              <input type="checkbox" name="remember" id="checkTerm" />
               Acepto los terminos y condiciones
             </label>
 
             <button
-              class="rounded-md py-2 mt-2 font-bold bg-[#2f2cd8] text-gray-50"
+              class="rounded-md py-2 mt-2 font-bold bg-[#2f2cd8] hover:bg-blue-900 text-gray-50"
               type="submit"
+              id="btnRegister"
             >
               Registrarse
             </button>
@@ -87,22 +96,20 @@
         </div>
       </section>
 
-      <section class="hidden bg-[#d5d5f7] h-screen lg:block lg:w-1/2">
-        <header class="flex items-center m-5 gap-2">
-          <img
-            src="../assets/img/Icono Finanza.png"
-            class="w-5 h-auto"
-            alt=""
-          />
-          <p class="font-bold">Nómada Wallet</p>
-        </header>
+      <section
+        class="hidden bg-[#d5d5f7] h-screen lg:block content-center justify-items-center lg:w-1/2"
+      >
         <div class="grid content-center justify-items-center my-10 mx-[15%]">
           <h1 class="py-8 text-4xl text-center font-bold">
             Simplicidad y control
             <br />
             para tu economía.
           </h1>
-          <img class="w-100" src="../assets/img/Monitor-dashBoard.png" alt="" />
+          <img
+            class="w-100"
+            src="../../src/assets/img/Monitor-dashBoard.png"
+            alt=""
+          />
           <p class="py-4 text-center font-bold text-2xl">
             Tus sueños valen más que un
             <br />
@@ -113,5 +120,6 @@
         </div>
       </section>
     </div>
+    <script src="../js/register.js"></script>
   </body>
 </html>
