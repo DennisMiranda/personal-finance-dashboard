@@ -2,7 +2,6 @@ const path = require('path');
 const glob = require('glob');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 // Generar plugins para cada archivo HTML
 const htmlPlugins = glob.sync('./src/**/*.html').map((file) => {
@@ -20,19 +19,13 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader, // Extrae el CSS en un archivo separado
-          'css-loader',
-          'postcss-loader',
-        ],
+        include: path.resolve(__dirname, 'src'),
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
     ],
   },
   plugins: [
     ...htmlPlugins,
-    new MiniCssExtractPlugin({
-      filename: 'css/style.css', // Guarda el CSS en "dist/css/style.css"
-    }),
     // Copiar CSS y assets a dist/
     new CopyWebpackPlugin({
       patterns: [
@@ -44,5 +37,8 @@ module.exports = {
   devServer: {
     static: './dist',
     port: 3000,
+    hot: true,
+    open: true,
+    watchFiles: ['src/**/*'],
   },
 };
