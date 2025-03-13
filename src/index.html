@@ -1,11 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <a class="h-100" href="./pages/login.html">Login</a>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+  <!-- Información para SEO y accesibilidad -->
+  <title>Yapay Wallet | Controla tu dinero</title>
+  <meta name="description" content="Controla tus gastos y ahorra con Yapay Wallet" />
+  <meta name="keywords" content="Yapay Wallet, control de gastos, ahorro" />
+  <meta name="author" content="Yapay Wallet" />
+  <meta name="robots" content="index, follow" />
+  <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="../css/login.css" />
+
+</head>
+
+<body>
+  <header>
+    <nav class=" bg-blue-800">
+      <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div class="relative flex h-16 items-center justify-between">
+          <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            <!-- Botón para menú hamburguesa-->
+            <button id="menu-toggle" type="button"
+              class="relative inline-flex items-center justify-center rounded-md p-2 text-white hover:text-white focus:ring-2 focus:ring-white focus:outline-none focus:ring-inset"
+              aria-controls="mobile-menu" aria-expanded="false">
+
+              <!-- Icono de menú hamburguesa -->
+              <svg id="menu-open" class="block size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+
+              <!-- Icono de cerrar "X"-->
+              <svg id="menu-closed" class="hidden size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Logo y navegación -->
+          <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+            <a href="./index.html" class="flex shrink-0 items-center space-x-2" aria-label="Página de inicio">
+              <img class="h-10 w-auto mr-3" src="./assets/img/logo.png" alt="Logo de Yapay Wallet">
+              <span class=" text-xl font-bold text-white">Yapay Wallet</span>
+            </a>
+
+            <!-- Menú de navegación -->
+            <div class="hidden sm:flex sm:justify-center sm:w-full">
+              <ul class="flex space-x-4 items-center p-0 m-0 list-none">
+                <a href="#Home"
+                  class=" px-3 py-2 text-base font-medium text-white hover:text-white after:block after:h-0.5 after:w-full after:bg-white after:scale-x-0 after:transition-transform after:duration-300 after:origin-left hover:after:scale-x-100"
+                  aria-current="page">Inicio</a>
+                <a href="#Features"
+                  class="rounded-md px-3 py-2 text-base font-medium  text-white hover:text-white after:block after:h-0.5 after:w-full after:bg-white after:scale-x-0 after:transition-transform after:duration-300 after:origin-left hover:after:scale-x-100">Caracteristica</a>
+                <a href="#Benefits"
+                  class="rounded-md px-3 py-2 text-base font-medium text-white hover:text-white after:block after:h-0.5 after:w-full after:bg-white after:scale-x-0 after:transition-transform after:duration-300 after:origin-left hover:after:scale-x-100">Beneficios</a>
+                <a href="#Testimonials"
+                  class="rounded-md px-3 py-2 text-base font-medium  text-white hover:text-white after:block after:h-0.5 after:w-full after:bg-white after:scale-x-0 after:transition-transform after:duration-300 after:origin-left hover:after:scale-x-100">Testimonios</a>
+              </ul>
+            </div>
+          </div>
+          <div class="hidden sm:flex sm:items-center">
+            <a href="./pages/login.html"
+              class=" text-blue-800 px-5 py-2 bg-white rounded-md text-base font-semibold border border-blue-800 shadow-sm hover:bg-blue-100 hover:shadow-md transition-all duration-300">Iniciar
+              sesión</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menú móvil -->
+      <div class="sm:hidden hidden" id="mobile-menu">
+        <ul class="space-y-2 px-4 pt-4 pb-6 rounded-lg shadow-md">
+          <li><a href="#Home"
+              class="block text-center rounded-lg px-4 py-3 text-base font-medium text-white border-b border-white/10 hover:bg-white/10 transition-all duration-300" aria-current="page">Inicio</a></li>
+          <li><a href="#Features"
+              class="block text-center rounded-lg px-4 py-3 text-base font-medium text-white border-b border-white/10 hover:bg-white/10 transition-all duration-300">Característica</a></li>
+          <li><a href="#Benefits"
+              class="block text-center rounded-lg px-4 py-3 text-base font-medium text-white border-b border-white/10 hover:bg-white/10 transition-all duration-300">Beneficios</a></li>
+          <li><a href="#Testimonials"
+              class="block text-center rounded-lg px-4 py-3 text-base font-medium text-white border-b border-white/10 hover:bg-white/10 transition-all duration-300">Testimonios</a></li>
+          <li><a href="./pages/login.html"
+              class="block text-center rounded-full px-6 py-3 mt-4 text-blue-800 bg-white text-base font-medium hover:bg-blue-100 hover:shadow-md transition-all duration-300">Iniciar sesión</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  
+</body>
+
 </html>
