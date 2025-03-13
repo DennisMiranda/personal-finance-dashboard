@@ -8,8 +8,8 @@
   </head>
   <body>
     <header class="flex items-center m-5 gap-2 absolute">
-      <img src="../assets/img/Logo-yapac-alpha.png" class="w-10" alt="" />
-      <p class="font-bold">Yapac Wallet</p>
+      <img src="../assets/img/Logo-yapac-alpha-v2.png" class="w-10" alt="" />
+      <p class="font-bold">Yapay Wallet</p>
     </header>
     <div class="flex">
       <section
@@ -42,21 +42,29 @@
           <form class="flex flex-col" action="login" id="loginForm">
             <label class="font-semibold" for="email">Correo electrónico</label>
             <input
-              class="border-1 rounded-md h-10"
+              class="border-1 rounded-md h-10 px-2"
               type="email"
               id="email"
               name="email"
               required
             />
 
-            <label class="mt-3 font-semibold" for="password">Contraseña</label>
-            <input
-              class="border-1 rounded-md h-10"
-              type="password"
-              id="password"
-              name="password"
-              required
-            />
+            <label class="mt-3 font-semibold">Contraseña</label>
+            <div class="relative flex items-center justify-end">
+              <input
+                class="border-1 rounded-md h-10 w-full px-2"
+                type="password"
+                id="password"
+                name="password"
+                required
+              />
+              <img
+                class="w-6 absolute me-2 cursor-pointer opacity-20"
+                src="../assets/img/ojo.png"
+                alt=""
+                id="eye"
+              />
+            </div>
 
             <label class="my-3 font-semibold" for="remember">
               <input type="checkbox" name="remember" id="rememberPass" />
@@ -79,6 +87,5 @@
         </div>
       </section>
     </div>
-    <script src="../js/login.js"></script>
   </body>
 </html>

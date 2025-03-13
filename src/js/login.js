@@ -1,6 +1,19 @@
 document.addEventListener('DOMContentLoaded', function () {
   const loginForm = document.getElementById('loginForm');
 
+  //Mostrar y ocultar contraseña
+  const inputPass = document.getElementById('password');
+  const eyePass = document.getElementById('eye');
+  eyePass.addEventListener('click', function () {
+    if (inputPass.type == 'password') {
+      inputPass.type = 'text';
+      eyePass.style.opacity = 1;
+    } else {
+      inputPass.type = 'password';
+      eyePass.style.opacity = 0.2;
+    }
+  });
+
   loginForm.addEventListener('submit', function (event) {
     event.preventDefault(); // Evita que la página se recargue
 
