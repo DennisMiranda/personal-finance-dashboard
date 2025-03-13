@@ -51,6 +51,6 @@ document.addEventListener('DOMContentLoaded', function () {
     localStorage.setItem(email, JSON.stringify(userData));
 
     alert('Registro exitoso. Redirigiendo al inicio de sesión...');
-    window.location.href = '/src/pages/login.html';
+    window.location.href = '../pages/login.html';
   });
 });
