@@ -15,9 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   const toggleMenu = () => {
     const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+    const newExpandedState = !isExpanded;
 
     menuButton.setAttribute('aria-expanded', String(!isExpanded));
     mobileMenu.classList.toggle('hidden');
+    mobileMenu.setAttribute('aria-hidden', String(!newExpandedState));
 
     // Alternar iconos del menú
     openIcon.classList.toggle('hidden');
@@ -33,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('#mobile-menu a').forEach((link) => {
     link.addEventListener('click', () => {
       mobileMenu.classList.add('hidden');
+      mobileMenu.setAttribute('aria-hidden', 'true');
       openIcon.classList.remove('hidden');
       closeIcon.classList.add('hidden');
       menuButton.setAttribute('aria-expanded', 'false');
@@ -54,4 +57,32 @@ document.addEventListener('DOMContentLoaded', () => {
       menuButton.setAttribute('aria-expanded', 'false');
     }
   });
+
+  /**
+   * Funcionalidad del Slider de testimonios
+   */
+  const slider = document.querySelector('#testimonial-slider div');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  let index = 0;
+
+  function updateSlider() {
+    slider.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    index = index > 0 ? index - 1 : 2;
+    updateSlider();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    index = index < 2 ? index + 1 : 0;
+    updateSlider();
+  });
+
+  // Cambio automático cada 5 segundos
+  setInterval(() => {
+    index = index < 2 ? index + 1 : 0;
+    updateSlider();
+  }, 5000);
 });
