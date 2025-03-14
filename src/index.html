@@ -16,7 +16,9 @@
 
   <!-- Estilos -->
   <link rel="stylesheet" href="../css/login.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" </head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
 
 <body>
   <header>
@@ -53,15 +55,17 @@
             <!-- Menú de navegación -->
             <div class="hidden sm:flex sm:justify-center sm:w-full">
               <ul class="flex space-x-4 items-center p-0 m-0 list-none">
-                <a href="#Home"
-                  class=" px-3 py-2 text-base font-medium text-white hover:text-white after:block after:h-0.5 after:w-full after:bg-white after:scale-x-0 after:transition-transform after:duration-300 after:origin-left hover:after:scale-x-100"
-                  aria-current="page">Inicio</a>
-                <a href="#Features"
-                  class="rounded-md px-3 py-2 text-base font-medium  text-white hover:text-white after:block after:h-0.5 after:w-full after:bg-white after:scale-x-0 after:transition-transform after:duration-300 after:origin-left hover:after:scale-x-100">Caracteristica</a>
-                <a href="#Benefits"
-                  class="rounded-md px-3 py-2 text-base font-medium text-white hover:text-white after:block after:h-0.5 after:w-full after:bg-white after:scale-x-0 after:transition-transform after:duration-300 after:origin-left hover:after:scale-x-100">Beneficios</a>
-                <a href="#Testimonials"
-                  class="rounded-md px-3 py-2 text-base font-medium  text-white hover:text-white after:block after:h-0.5 after:w-full after:bg-white after:scale-x-0 after:transition-transform after:duration-300 after:origin-left hover:after:scale-x-100">Testimonios</a>
+                <li><a href="#Home"
+                  class="relative inline-block px-3 py-2 text-base font-medium text-white transition after:block after:h-0.5 after:w-full after:bg-white after:scale-x-0 after:transition-transform after:duration-300 after:origin-left hover:after:scale-x-100"
+                  aria-current="page">Inicio</a></li>
+                <li><a href="#Features"
+                  class="relative inline-block px-3 py-2 text-base font-medium text-white transition after:block after:h-0.5 after:w-full after:bg-white after:scale-x-0 after:transition-transform after:duration-300 after:origin-left hover:after:scale-x-100">Caracteristica</a></li>
+                <li><a href="#Benefits"
+                  class="relative inline-block px-3 py-2 text-base font-medium text-white transition after:block after:h-0.5 after:w-full after:bg-white after:scale-x-0 after:transition-transform after:duration-300 after:origin-left hover:after:scale-x-100">Beneficios</a></li>
+                <li><a href="#Testimonials"
+                    class="relative inline-block px-3 py-2 text-base font-medium text-white transition after:block after:h-0.5 after:w-full after:bg-white after:scale-x-0 after:transition-transform after:duration-300 after:origin-left hover:after:scale-x-100">Testimonios
+                  </a></li>
+
               </ul>
             </div>
           </div>
@@ -99,12 +103,12 @@
   <main>
     <!-- Sección Hero -->
     <section
-      class="relative w-full h-screen bg-cover bg-center flex items-center justify-center text-white px-6 md:px-12 bg-black/50 bg-blend-darken"
+      class="relative w-full h-screen bg-cover bg-center flex items-center justify-center text-white px-6 md:px-12 bg-black/40 bg-blend-darken"
       style="background-image: url('./assets/img/hero.jpg');">
       <div class="max-w-4xl text-center">
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight drop-shadow-lg">Gestiona tu dinero de forma
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight drop-shadow-lg">Gestiona tu dinero de forma
           sencilla y efectiva</h1>
-        <p class="mt-4 text-lg sm:text-xl md:text-2xl font-light drop-shadow-md max-w-3xl mx-auto">
+        <p class="mt-4 text-base sm:text-lg md:text-xl font-light drop-shadow-md max-w-3xl mx-auto">
           Descubre herramientas avanzadas para optimizar tus finanzas personales y alcanzar tus metas sin
           complicaciones.
         </p>
@@ -117,29 +121,64 @@
     </section>
 
     <!-- Sección Caracteristicas -->
-    <section id="Features" class="py-20 px-8 text-center">
-      <h2 class="text-4xl font-bold text-blue-800">Funciones que simplifican tu gestión financiera</h2>
-      <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+    <section id="Features" class="py-16 px-8 text-center max-w-7xl mx-auto">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-800">Funciones que simplifican tu gestión
+        financiera</h2>
+      <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="p-6 bg-white rounded-lg shadow-lg transition transform hover:scale-105 duration-300">
-          <i class="material-icons text-blue-700 text-7xl">schedule</i>
-          <h3 class="font-bold text-lg mt-2">Ahorra tiempo</h3>
-          <p class="mt-2 text-gray-600">Automatiza tus finanzas y enfócate en lo importante.</p>
+          <i class="material-icons text-blue-700 text-6xl">schedule</i>
+          <h3 class="font-bold text-xl mt-2">Ahorra tiempo</h3>
+          <p class="mt-2 text-base sm:text-lg text-gray-600">Automatiza tus finanzas y enfócate en lo importante.</p>
         </div>
         <div class="p-6 bg-white rounded-lg shadow-lg transition transform hover:scale-105 duration-300">
-          <i class="material-icons text-blue-700 text-7xl">insights</i>
-          <h3 class="font-bold text-lg mt-2">Control total</h3>
-          <p class="mt-2 text-gray-600">Monitorea ingresos, gastos y ahorros con facilidad.</p>
+          <i class="material-icons text-blue-700 text-6xl">insights</i>
+          <h3 class="font-bold text-xl mt-2">Control total</h3>
+          <p class="mt-2 text-base sm:text-lg text-gray-600">Monitorea ingresos, gastos y ahorros con facilidad.</p>
         </div>
         <div class="p-6 bg-white rounded-lg shadow-lg transition transform hover:scale-105 duration-300">
-          <i class="material-icons text-blue-700 text-7xl">bar_chart</i>
-          <h3 class="font-bold text-lg mt-2">Reportes detallados</h3>
-          <p class="mt-2 text-gray-600">Visualiza análisis en tiempo real y mejora tu gestión financiera.</p>
+          <i class="material-icons text-blue-700 text-6xl">bar_chart</i>
+          <h3 class="font-bold text-xl mt-2">Reportes detallados</h3>
+          <p class="mt-2 text-base sm:text-lg text-gray-600">Visualiza análisis en tiempo real y mejora tu gestión
+            financiera.</p>
         </div>
       </div>
     </section>
 
+    <!-- Sección Beneficios -->
+    <section id="beneficios" class="py-16 px-8 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+      <div class="max-w-lg">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-800 leading-tight">
+          Gestiona tu dinero sin complicaciones
+        </h2>
+        <p class="mt-4 text-base sm:text-lg text-gray-600">
+          Organiza tus ingresos y egresos con herramientas intuitivas que te permitirán visualizar y optimizar tu
+          economía.
+        </p>
+        <ul class="mt-6 space-y-4">
+          <li class="flex items-center">
+            <i class="fa-solid fa-check-circle text-blue-600 text-xl sm:text-2xl mr-3"></i>
+            <span class="text-base sm:text-lg text-gray-700">Registro fácil de ingresos y egresos.</span>
+          </li>
+          <li class="flex items-center">
+            <i class="fa-solid fa-chart-line text-blue-600 text-xl sm:text-2xl mr-3"></i>
+            <span class="text-base sm:text-lg text-gray-700">Gráficos interactivos para visualizar tu dinero.</span>
+          </li>
+          <li class="flex items-center">
+            <i class="fa-solid fa-piggy-bank text-blue-600 text-xl sm:text-2xl mr-3"></i>
+            <span class="text-base sm:text-lg text-gray-700">Planes personalizados de ahorro.</span>
+          </li>
+        </ul>
+      </div>
 
-    
+      <div class="flex justify-center md:justify-end w-full">
+        <img src="./assets/img/beneficios.webp" alt="Gestión financiera"
+          class="max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl h-auto object-cover rounded-xl shadow-xl hover:shadow-2xl transition duration-300 scale-105 md:scale-110">
+      </div>
+    </section>
+
+
+
+
   </main>
 </body>
 
