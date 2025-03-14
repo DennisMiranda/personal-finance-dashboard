@@ -4,44 +4,31 @@
  * y manejar el cambio de iconos entre el menú abierto y cerrado.
  */
 document.addEventListener('DOMContentLoaded', () => {
-  /**
-   * Botón de activación/desactivación del menú móvil
-   * @type {HTMLElement}
-   */
+  // Selección de elementos del DOM
   const menuButton = document.querySelector('#menu-toggle');
-
-  /**
-   * Menú desplegable en dispositivos móviles.
-   * @type {HTMLElement}
-   */
   const mobileMenu = document.querySelector('#mobile-menu');
-
-  /**
-   * Iconos de apertura y cierre del menú.
-   * @type {HTMLElement}
-   */
-  const [openIcon, closeIcon] = [
-    document.querySelector('#menu-open'),
-    document.querySelector('#menu-closed'),
-  ];
+  const openIcon = document.querySelector('#menu-open');
+  const closeIcon = document.querySelector('#menu-closed');
 
   /**
    * Función que alterna la visibilidad del menú de navegación móvil.
    */
   const toggleMenu = () => {
     const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+
     menuButton.setAttribute('aria-expanded', String(!isExpanded));
     mobileMenu.classList.toggle('hidden');
+
+    // Alternar iconos del menú
     openIcon.classList.toggle('hidden');
     closeIcon.classList.toggle('hidden');
   };
 
-  // Agrega evento de clic al botón del menú para abrir o cerrar el menú móvil.
+  // Agregar evento de clic al botón del menú para abrir o cerrar el menú móvil.
   menuButton.addEventListener('click', toggleMenu);
 
   /**
-   * Selecciona todos los enlaces dentro del menú móvil y les asigna un evento de clic.
-   * Al hacer clic en un enlace, se oculta el menú móvil y se restablecen los iconos del botón.
+   * Cierra el menú cuando se hace clic en un enlace dentro del menú móvil.
    */
   document.querySelectorAll('#mobile-menu a').forEach((link) => {
     link.addEventListener('click', () => {
@@ -52,6 +39,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Agrega el evento click al botón de menú para alternar el estado del menú móvil.
-  menuButton.addEventListener('click', toggleMenu);
+  /**
+   * Cierra el menú si el usuario hace clic fuera de él.
+   */
+  document.addEventListener('click', (event) => {
+    if (
+      !mobileMenu.classList.contains('hidden') &&
+      !mobileMenu.contains(event.target) &&
+      !menuButton.contains(event.target)
+    ) {
+      mobileMenu.classList.add('hidden');
+      openIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+      menuButton.setAttribute('aria-expanded', 'false');
+    }
+  });
 });
