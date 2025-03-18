@@ -12,6 +12,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.2",
+    "ag-grid-community": "^33.1.1",
     "chart.js": "^4.4.8"
   },
   "devDependencies": {
@@ -21,6 +23,7 @@
     "babel-loader": "^10.0.0",
     "copy-webpack-plugin": "^13.0.0",
     "css-loader": "^7.1.2",
+    "file-loader": "^6.2.0",
     "glob": "^11.0.1",
     "html-webpack-plugin": "^5.6.3",
     "postcss-loader": "^8.1.1",
