@@ -22,14 +22,14 @@
 
 <body>
   <header>
-    <nav class="bg-blue-800">
+    <nav class="bg-blue-800 relative z-20">
       <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <div class="relative flex h-16 items-center justify-between">
+        <div class="relative flex h-16 items-center justify-between flex-wrap">
           <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
             <!-- Botón para menú hamburguesa-->
             <button id="menu-toggle" type="button"
-              class="relative inline-flex items-center justify-center rounded-md p-2 text-white hover:text-white focus:ring-2 focus:ring-white focus:outline-none focus:ring-inset"
-              aria-controls="mobile-menu" aria-expanded="false">
+              class="relative inline-flex items-center justify-center rounded-md p-2 text-white hover:text-white focus:ring-2 focus:ring-white focus:outline-none focus:ring-inset z-20" 
+              aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menú de navegación">
 
               <!-- Icono de menú hamburguesa -->
               <svg id="menu-open" class="block size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -56,29 +56,31 @@
             <div class="hidden sm:flex sm:justify-center sm:w-full">
               <ul class="flex space-x-4 items-center p-0 m-0 list-none">
                 <li><a href="#home"
-                  class="relative inline-block px-3 py-2 text-base font-medium text-white transition after:block after:h-0.5 after:w-full after:bg-white after:scale-x-0 after:transition-transform after:duration-300 after:origin-left hover:after:scale-x-100"
-                  aria-current="page">Inicio</a></li>
+                    class="relative inline-block px-3 py-2 text-base font-medium text-white transition after:block after:h-0.5 after:w-full after:bg-white after:scale-x-0 after:transition-transform after:duration-300 after:origin-left hover:after:scale-x-100"
+                    aria-current="page">Inicio</a></li>
                 <li><a href="#features"
-                  class="relative inline-block px-3 py-2 text-base font-medium text-white transition after:block after:h-0.5 after:w-full after:bg-white after:scale-x-0 after:transition-transform after:duration-300 after:origin-left hover:after:scale-x-100">Características</a></li>
+                    class="relative inline-block px-3 py-2 text-base font-medium text-white transition after:block after:h-0.5 after:w-full after:bg-white after:scale-x-0 after:transition-transform after:duration-300 after:origin-left hover:after:scale-x-100">Características</a>
+                </li>
                 <li><a href="#benefits"
-                  class="relative inline-block px-3 py-2 text-base font-medium text-white transition after:block after:h-0.5 after:w-full after:bg-white after:scale-x-0 after:transition-transform after:duration-300 after:origin-left hover:after:scale-x-100">Beneficios</a></li>
+                    class="relative inline-block px-3 py-2 text-base font-medium text-white transition after:block after:h-0.5 after:w-full after:bg-white after:scale-x-0 after:transition-transform after:duration-300 after:origin-left hover:after:scale-x-100">Beneficios</a>
+                </li>
                 <li><a href="#testimonials"
                     class="relative inline-block px-3 py-2 text-base font-medium text-white transition after:block after:h-0.5 after:w-full after:bg-white after:scale-x-0 after:transition-transform after:duration-300 after:origin-left hover:after:scale-x-100">Testimonios
                   </a></li>
-
               </ul>
             </div>
           </div>
-          <div class="hidden sm:flex sm:items-center">
+          <div class="hidden md:flex items-center ">
             <a href="./pages/login.html"
-              class=" text-blue-800 px-5 py-2 bg-white rounded-md text-base font-medium border border-blue-800 shadow-sm hover:bg-blue-100 hover:shadow-md transition-all duration-300">Iniciar
-              sesión</a>
+              class=" text-blue-800 px-5 py-2 bg-white rounded-md text-base font-medium border border-blue-800 shadow-sm hover:bg-blue-100 hover:shadow-md transition-all duration-300">
+              Iniciar sesión
+            </a>
           </div>
         </div>
       </div>
 
       <!-- Menú móvil -->
-      <div id="mobile-menu" class="sm:hidden hidden absolute left-0 top-16 w-full bg-blue-800 z-50">
+      <div id="mobile-menu" class="hidden absolute left-0 top-16 w-full bg-blue-800 z-50">
         <ul class="space-y-2 px-4 pt-4 pb-6 rounded-lg shadow-md">
           <li><a href="#home"
               class="block text-center rounded-lg px-4 py-3 text-base font-medium text-white border-b border-white/10 hover:bg-white/10 transition-all duration-300"
@@ -93,7 +95,8 @@
               class="block text-center rounded-lg px-4 py-3 text-base font-medium text-white border-b border-white/10 hover:bg-white/10 transition-all duration-300">Testimonios</a>
           </li>
           <li><a href="./pages/login.html"
-              class="block text-center rounded-full px-6 py-3 mt-4 text-blue-800 bg-white text-base font-medium hover:bg-blue-100 hover:shadow-md transition-all duration-300">Iniciar sesión</a>
+              class="block text-center rounded-lg px-6 py-3 mt-4 text-blue-800 bg-white text-base font-medium hover:bg-blue-100 hover:shadow-md transition-all duration-300">Iniciar
+              sesión</a>
           </li>
         </ul>
       </div>
@@ -102,7 +105,7 @@
 
   <main>
     <!-- Sección Hero -->
-    <section
+    <section id="home"
       class="relative w-full h-screen bg-cover bg-center flex items-center justify-center text-white px-6 md:px-12 bg-black/40 bg-blend-darken"
       style="background-image: url('./assets/img/hero.jpg');">
       <div class="max-w-4xl text-center">
@@ -113,15 +116,17 @@
           complicaciones.
         </p>
         <div class="mt-6 flex justify-center gap-4">
-          <a href="./pages/register.html"
-            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold text-lg shadow-lg transition-all">Empieza ahora</a>
+          <a href="./pages/register.html" class="bg-blue-700 text-white px-8 py-4 text-lg sm:text-xl font-semibold rounded-lg 
+                    shadow-lg hover:bg-blue-800 hover:scale-105 hover:shadow-xl transition-all duration-300">Empieza
+            ahora</a>
         </div>
       </div>
     </section>
 
     <!-- Sección Caracteristicas -->
     <section id="features" class="py-16 px-8 text-center max-w-7xl mx-auto">
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-800">Funciones que simplifican tu gestión financiera</h2>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-800">Funciones que simplifican tu gestión
+        financiera</h2>
       <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="p-6 bg-white rounded-lg shadow-lg transition transform hover:scale-105 duration-300">
           <i class="material-icons text-blue-700 text-6xl">schedule</i>
@@ -136,7 +141,8 @@
         <div class="p-6 bg-white rounded-lg shadow-lg transition transform hover:scale-105 duration-300">
           <i class="material-icons text-blue-700 text-6xl">bar_chart</i>
           <h3 class="font-bold text-xl mt-2"> Reportes detallados </h3>
-          <p class="mt-2 text-base sm:text-lg text-gray-600">Visualiza análisis en tiempo real y mejora tu gestión financiera.</p>
+          <p class="mt-2 text-base sm:text-lg text-gray-600">Visualiza análisis en tiempo real y mejora tu gestión
+            financiera.</p>
         </div>
       </div>
     </section>
@@ -169,7 +175,7 @@
 
       <div class="flex justify-center md:justify-end w-full">
         <img src="./assets/img/beneficios.webp" alt="Gestión financiera"
-          class="max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl h-auto object-cover rounded-xl shadow-xl hover:shadow-2xl transition duration-300 scale-105 md:scale-110">
+          class="max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl h-auto object-cover rounded-xl shadow-xl hover:shadow-2xl transition duration-300 md:hover:scale-110">
       </div>
     </section>
 
@@ -181,7 +187,8 @@
           <div class="flex transition-transform duration-500 ease-in-out">
             <div class="w-full flex-shrink-0 text-center px-6">
               <p class="text-xl sm:text-2xl font-semibold text-yellow-500">★★★★★</p>
-              <blockquote class="mt-4 text-base sm:text-lg md:text-xl italic text-gray-700">"Gracias a esta plataforma, he podido ahorrar un 30% más cada mes."</blockquote>
+              <blockquote class="mt-4 text-base sm:text-lg md:text-xl italic text-gray-700">"Gracias a esta plataforma,
+                he podido ahorrar un 30% más cada mes."</blockquote>
               <div class="mt-4 flex justify-center items-center space-x-3">
                 <img class="w-12 h-12 rounded-full" src="./assets/img/men1.jpg" alt="Foto de usuario">
                 <p class="text-lg sm:text-xl font-semibold text-gray-900">
@@ -228,10 +235,72 @@
         </div>
       </div>
     </section>
-
-
+    <!-- Seccion Llamada a la Acción -->
+    <section id="call-to-action" class="py-16 px-8 bg-gradient-to-b from-gray-100 to-gray-50 text-center">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-800">
+          Empieza a gestionar tu dinero hoy
+        </h2>
+        <p class="mt-4 text-lg sm:text-2xl text-gray-700">
+          Regístrate ahora y toma el control de tus finanzas personales de manera fácil y rápida.
+        </p>
+        <div class="mt-6 flex justify-center">
+          <a href="./pages/register.html" class="bg-blue-700 text-white px-8 py-4 text-lg sm:text-xl font-semibold rounded-lg 
+                    shadow-lg hover:bg-blue-800 hover:scale-105 hover:shadow-xl transition-all duration-300">
+            Regístrate gratis
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 
+  <footer class="bg-blue-800 text-white py-10">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between text-center md:text-left">
+
+      <!-- Logo y Nombre -->
+      <div class="flex flex-col items-center md:items-start">
+        <div class="flex items-center space-x-3">
+          <img src="./assets/img/logo.png" alt="Yapay Wallet Logo" class="h-10 w-auto">
+          <p class="text-xl font-bold">Yapay Wallet</p>
+        </div>
+        <p class="mt-2 text-gray-300 text-sm max-w-sm">Tu herramienta confiable para gestionar tus finanzas personales
+          con
+          facilidad.</p>
+      </div>
+
+      <!-- Navegación -->
+      <nav class="mt-6 md:mt-0">
+        <ul class="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-6 text-gray-300">
+          <li><a href="#home" class="hover:text-white transition">Inicio</a></li>
+          <li><a href="#features" class="hover:text-white transition">Características</a></li>
+          <li><a href="#benefits" class="hover:text-white transition">Beneficios</a></li>
+          <li><a href="#testimonials" class="hover:text-white transition">Testimonios</a></li>
+        </ul>
+      </nav>
+
+      <!-- Redes Sociales -->
+      <div class="mt-6 md:mt-0 flex space-x-6">
+        <a href="https://www.facebook.com" class="text-gray-300 hover:text-white transition text-2xl">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a href="https://x.com/?lang=es" class="text-gray-300 hover:text-white transition text-2xl">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+        <a href="https://www.instagram.com/" class="text-gray-300 hover:text-white transition text-2xl">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com/" class="text-gray-300 hover:text-white transition text-2xl">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Derechos Reservados -->
+    <div class="mt-8 text-center text-gray-400 text-sm">
+      © 2025 Yapay Wallet. Todos los derechos reservados para fines educativos.
+    </div>
+  </footer>
 </body>
+
 
 </html>
