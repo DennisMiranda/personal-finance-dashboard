@@ -1,1 +1,14 @@
 @import 'tailwindcss';
+
+@theme {
+  --color-primary: #2f2cd8; /* Azul principal (sidebar, botones, encabezados) */
+  --color-secondary: #d5d5f7; /* Azul claro (fondos, gráficos) */
+  --color-background: #ffffff; /* Fondo principal */
+  --color-border: #a6a6a6; /* Bordes, tarjetas */
+  --color-text: #1f2c73; /* Texto oscuro, titulos*/
+  --color-text-secondary: #7184ad; /* Texto azul, subtítulos y contenido*/
+  --color-success-text: #00bf63; /* Texto verde (indicadores positivos) */
+  --color-success-bg: #e5fff1; /* Background verde (indicadores positivos) */
+  --color-danger-text: #f96669; /* Rojo (indicadores negativos) */
+  --color-danger-bg: #ffeeee; /* Rojo (indicadores negativos) */
+}
