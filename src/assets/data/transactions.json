@@ -6,8 +6,7 @@
     "Subcategoría": "Fijo",
     "Monto": 190.85,
     "Detalle": "Pago de curso online",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0002",
@@ -16,8 +15,7 @@
     "Subcategoría": "Variable",
     "Monto": 35.75,
     "Detalle": "Compra de videojuego",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0003",
@@ -26,8 +24,7 @@
     "Subcategoría": "Variable",
     "Monto": 93.35,
     "Detalle": "Pago de gasolina",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0004",
@@ -36,8 +33,7 @@
     "Subcategoría": "Variable",
     "Monto": 169.1,
     "Detalle": "Corte de cabello",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0005",
@@ -46,8 +42,7 @@
     "Subcategoría": "Variable",
     "Monto": 196.78,
     "Detalle": "Pasaje de bus",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0006",
@@ -56,8 +51,7 @@
     "Subcategoría": "Fijo",
     "Monto": 174.08,
     "Detalle": "Compra de libros",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0007",
@@ -66,8 +60,7 @@
     "Subcategoría": "Fijo",
     "Monto": 188.88,
     "Detalle": "Pago de agua",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0008",
@@ -76,8 +69,7 @@
     "Subcategoría": "Fijo",
     "Monto": 68.8,
     "Detalle": "Pago de agua",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0009",
@@ -86,8 +78,7 @@
     "Subcategoría": "Variable",
     "Monto": 26.07,
     "Detalle": "Compra de zapatos",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0010",
@@ -96,8 +87,7 @@
     "Subcategoría": "Fijo",
     "Monto": 196.16,
     "Detalle": "Cita médica",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0011",
@@ -106,8 +96,7 @@
     "Subcategoría": "Fijo",
     "Monto": 150.94,
     "Detalle": "Compra de medicina",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0012",
@@ -116,8 +105,7 @@
     "Subcategoría": "Variable",
     "Monto": 100.37,
     "Detalle": "Cena en restaurante",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0013",
@@ -126,8 +114,7 @@
     "Subcategoría": "Variable",
     "Monto": 180.79,
     "Detalle": "Compra de zapatos",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0014",
@@ -136,8 +123,7 @@
     "Subcategoría": "Variable",
     "Monto": 177.01,
     "Detalle": "Compra de ropa",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0015",
@@ -146,8 +132,7 @@
     "Subcategoría": "Variable",
     "Monto": 188.44,
     "Detalle": "Pago de taxi",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0016",
@@ -156,8 +141,7 @@
     "Subcategoría": "Fijo",
     "Monto": 186.55,
     "Detalle": "Compra de productos de aseo",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0017",
@@ -166,8 +150,7 @@
     "Subcategoría": "Fijo",
     "Monto": 195.33,
     "Detalle": "Pago de luz",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0018",
@@ -176,8 +159,7 @@
     "Subcategoría": "Fijo",
     "Monto": 190.31,
     "Detalle": "Compra de productos de aseo",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0019",
@@ -186,8 +168,7 @@
     "Subcategoría": "Fijo",
     "Monto": 47.83,
     "Detalle": "Compra de productos de aseo",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0020",
@@ -196,8 +177,7 @@
     "Subcategoría": "Variable",
     "Monto": 121.63,
     "Detalle": "Pago de gasolina",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0021",
@@ -206,8 +186,7 @@
     "Subcategoría": "Fijo",
     "Monto": 91.26,
     "Detalle": "Cita médica",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0022",
@@ -216,8 +195,7 @@
     "Subcategoría": "Fijo",
     "Monto": 163.4,
     "Detalle": "Pensión de colegio",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0023",
@@ -226,8 +204,7 @@
     "Subcategoría": "Variable",
     "Monto": 100.53,
     "Detalle": "Compra de videojuego",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0024",
@@ -236,8 +213,7 @@
     "Subcategoría": "Fijo",
     "Monto": 196.49,
     "Detalle": "Pago de curso online",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0025",
@@ -246,8 +222,7 @@
     "Subcategoría": "Fijo",
     "Monto": 137.49,
     "Detalle": "Pago de agua",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0026",
@@ -256,8 +231,7 @@
     "Subcategoría": "Variable",
     "Monto": 170.26,
     "Detalle": "Compra de ropa",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0027",
@@ -266,8 +240,7 @@
     "Subcategoría": "Fijo",
     "Monto": 96.72,
     "Detalle": "Pago de curso online",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0028",
@@ -276,8 +249,7 @@
     "Subcategoría": "Fijo",
     "Monto": 113.89,
     "Detalle": "Pago de luz",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0029",
@@ -286,8 +258,7 @@
     "Subcategoría": "Variable",
     "Monto": 152.53,
     "Detalle": "Salida al cine",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0030",
@@ -296,8 +267,7 @@
     "Subcategoría": "Variable",
     "Monto": 130.29,
     "Detalle": "Pago de taxi",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0031",
@@ -306,8 +276,7 @@
     "Subcategoría": "Variable",
     "Monto": 121.59,
     "Detalle": "Pasaje de bus",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0032",
@@ -316,8 +285,7 @@
     "Subcategoría": "Variable",
     "Monto": 131.18,
     "Detalle": "Compras de mercado",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0033",
@@ -326,8 +294,7 @@
     "Subcategoría": "Variable",
     "Monto": 191.26,
     "Detalle": "Pago de taxi",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0034",
@@ -336,8 +303,7 @@
     "Subcategoría": "Variable",
     "Monto": 131.77,
     "Detalle": "Pago de taxi",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0035",
@@ -346,8 +312,7 @@
     "Subcategoría": "Variable",
     "Monto": 39.47,
     "Detalle": "Pago de gasolina",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0036",
@@ -356,8 +321,7 @@
     "Subcategoría": "Variable",
     "Monto": 135.56,
     "Detalle": "Suscripción a streaming",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0037",
@@ -366,8 +330,7 @@
     "Subcategoría": "Fijo",
     "Monto": 105.81,
     "Detalle": "Pago de curso online",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0038",
@@ -376,8 +339,7 @@
     "Subcategoría": "Variable",
     "Monto": 106.71,
     "Detalle": "Compra de ropa",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0039",
@@ -386,8 +348,7 @@
     "Subcategoría": "Variable",
     "Monto": 106.56,
     "Detalle": "Pasaje de bus",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0040",
@@ -396,8 +357,7 @@
     "Subcategoría": "Variable",
     "Monto": 93.35,
     "Detalle": "Compra de videojuego",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0041",
@@ -406,8 +366,7 @@
     "Subcategoría": "Variable",
     "Monto": 43.91,
     "Detalle": "Pago de gasolina",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0042",
@@ -416,8 +375,7 @@
     "Subcategoría": "Fijo",
     "Monto": 49.21,
     "Detalle": "Compra de productos de aseo",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0043",
@@ -426,8 +384,7 @@
     "Subcategoría": "Variable",
     "Monto": 140.77,
     "Detalle": "Pago de gasolina",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0044",
@@ -436,8 +393,7 @@
     "Subcategoría": "Fijo",
     "Monto": 148.1,
     "Detalle": "Compra de medicina",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0045",
@@ -446,8 +402,7 @@
     "Subcategoría": "Variable",
     "Monto": 111.74,
     "Detalle": "Compra de zapatos",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0046",
@@ -456,8 +411,7 @@
     "Subcategoría": "Variable",
     "Monto": 132.23,
     "Detalle": "Corte de cabello",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0047",
@@ -466,8 +420,7 @@
     "Subcategoría": "Variable",
     "Monto": 72.17,
     "Detalle": "Salida al cine",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0048",
@@ -476,8 +429,7 @@
     "Subcategoría": "Variable",
     "Monto": 163.0,
     "Detalle": "Corte de cabello",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0049",
@@ -486,8 +438,7 @@
     "Subcategoría": "Variable",
     "Monto": 70.61,
     "Detalle": "Corte de cabello",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "T0050",
@@ -496,8 +447,7 @@
     "Subcategoría": "Fijo",
     "Monto": 103.27,
     "Detalle": "Compra de productos de aseo",
-    "Tipo de Registro": "Gasto",
-    "Tipo": null
+    "Tipo de Registro": "Gasto"
   },
   {
     "ID": "I0001",
@@ -506,8 +456,7 @@
     "Subcategoría": "Fijo",
     "Monto": 437.39,
     "Detalle": "Alquiler de departamento",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0002",
@@ -516,8 +465,7 @@
     "Subcategoría": "Variable",
     "Monto": 345.65,
     "Detalle": "Consultoría",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0003",
@@ -526,8 +474,7 @@
     "Subcategoría": "Fijo",
     "Monto": 411.28,
     "Detalle": "Salario quincenal",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0004",
@@ -536,8 +483,7 @@
     "Subcategoría": "Fijo",
     "Monto": 248.53,
     "Detalle": "Incentivo laboral",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0005",
@@ -576,8 +522,7 @@
     "Subcategoría": "Variable",
     "Monto": 283.15,
     "Detalle": "Donación recibida",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0009",
@@ -586,8 +531,7 @@
     "Subcategoría": "Variable",
     "Monto": 280.13,
     "Detalle": "Regalo familiar",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0010",
@@ -596,8 +540,7 @@
     "Subcategoría": "Fijo",
     "Monto": 259.51,
     "Detalle": "Alquiler de oficina",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0011",
@@ -606,8 +549,7 @@
     "Subcategoría": "Fijo",
     "Monto": 265.7,
     "Detalle": "Pensión mensual",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0012",
@@ -616,8 +558,7 @@
     "Subcategoría": "Variable",
     "Monto": 53.47,
     "Detalle": "Consultoría",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0013",
@@ -626,8 +567,7 @@
     "Subcategoría": "Variable",
     "Monto": 126.36,
     "Detalle": "Consultoría",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0014",
@@ -636,8 +576,7 @@
     "Subcategoría": "Fijo",
     "Monto": 494.72,
     "Detalle": "Incentivo laboral",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0015",
@@ -646,8 +585,7 @@
     "Subcategoría": "Fijo",
     "Monto": 257.36,
     "Detalle": "Alquiler de departamento",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0016",
@@ -656,8 +594,7 @@
     "Subcategoría": "Fijo",
     "Monto": 135.68,
     "Detalle": "Pensión mensual",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0017",
@@ -666,8 +603,7 @@
     "Subcategoría": "Fijo",
     "Monto": 226.06,
     "Detalle": "Pago de renta",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0018",
@@ -676,8 +612,7 @@
     "Subcategoría": "Fijo",
     "Monto": 445.03,
     "Detalle": "Pensión mensual",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0019",
@@ -686,8 +621,7 @@
     "Subcategoría": "Variable",
     "Monto": 100.79,
     "Detalle": "Venta de productos",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0020",
@@ -696,8 +630,7 @@
     "Subcategoría": "Fijo",
     "Monto": 392.05,
     "Detalle": "Alquiler de departamento",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0021",
@@ -706,8 +639,7 @@
     "Subcategoría": "Variable",
     "Monto": 228.13,
     "Detalle": "Venta de productos",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0022",
@@ -716,8 +648,7 @@
     "Subcategoría": "Fijo",
     "Monto": 257.04,
     "Detalle": "Pensión mensual",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0023",
@@ -726,8 +657,7 @@
     "Subcategoría": "Fijo",
     "Monto": 250.7,
     "Detalle": "Bono anual",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0024",
@@ -736,8 +666,7 @@
     "Subcategoría": "Fijo",
     "Monto": 302.51,
     "Detalle": "Pago de renta",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0025",
@@ -746,8 +675,7 @@
     "Subcategoría": "Fijo",
     "Monto": 172.16,
     "Detalle": "Pensión mensual",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0026",
@@ -766,8 +694,7 @@
     "Subcategoría": "Fijo",
     "Monto": 219.45,
     "Detalle": "Sueldo",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0028",
@@ -776,8 +703,7 @@
     "Subcategoría": "Fijo",
     "Monto": 396.94,
     "Detalle": "Incentivo laboral",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0029",
@@ -786,8 +712,7 @@
     "Subcategoría": "Fijo",
     "Monto": 223.47,
     "Detalle": "Incentivo laboral",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0030",
@@ -806,8 +731,7 @@
     "Subcategoría": "Fijo",
     "Monto": 474.3,
     "Detalle": "Bono anual",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0032",
@@ -816,8 +740,7 @@
     "Subcategoría": "Variable",
     "Monto": 254.06,
     "Detalle": "Donación recibida",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0033",
@@ -846,8 +769,7 @@
     "Subcategoría": "Variable",
     "Monto": 472.2,
     "Detalle": "Servicios freelance",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0036",
@@ -856,8 +778,7 @@
     "Subcategoría": "Variable",
     "Monto": 253.96,
     "Detalle": "Donación recibida",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0037",
@@ -886,8 +807,7 @@
     "Subcategoría": "Variable",
     "Monto": 86.25,
     "Detalle": "Venta de productos",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0040",
@@ -896,8 +816,7 @@
     "Subcategoría": "Fijo",
     "Monto": 456.84,
     "Detalle": "Alquiler de oficina",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0041",
@@ -906,8 +825,7 @@
     "Subcategoría": "Fijo",
     "Monto": 453.02,
     "Detalle": "Salario quincenal",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0042",
@@ -916,8 +834,7 @@
     "Subcategoría": "Variable",
     "Monto": 159.89,
     "Detalle": "Consultoría",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0043",
@@ -936,8 +853,7 @@
     "Subcategoría": "Fijo",
     "Monto": 396.51,
     "Detalle": "Pago de renta",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0045",
@@ -946,8 +862,7 @@
     "Subcategoría": "Variable",
     "Monto": 428.66,
     "Detalle": "Venta de productos",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0046",
@@ -956,8 +871,7 @@
     "Subcategoría": "Fijo",
     "Monto": 332.44,
     "Detalle": "Alquiler de departamento",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0047",
@@ -966,8 +880,7 @@
     "Subcategoría": "Variable",
     "Monto": 120.14,
     "Detalle": "Venta de productos",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0048",
@@ -986,8 +899,7 @@
     "Subcategoría": "Fijo",
     "Monto": 155.63,
     "Detalle": "Sueldo",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   },
   {
     "ID": "I0050",
@@ -996,7 +908,6 @@
     "Subcategoría": "Fijo",
     "Monto": 483.52,
     "Detalle": "Pago de renta",
-    "Tipo de Registro": "Ingreso",
-    "Tipo": null
+    "Tipo de Registro": "Ingreso"
   }
 ]
