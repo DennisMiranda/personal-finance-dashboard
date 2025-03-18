@@ -44,6 +44,20 @@ module.exports = {
         include: path.resolve(__dirname, 'src'),
         use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/, // Soporte para fuentes
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name][ext]', // Ubicación de las fuentes en dist/
+        },
+      },
+      {
+        test: /\.svg$/, // Soporte para los íconos de FontAwesome en SVG
+        type: 'asset/resource',
+        generator: {
+          filename: 'icons/[name][ext]', // Ubicación de los SVGs en dist/
+        },
+      },
     ],
   },
   plugins: [
