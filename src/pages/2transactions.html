@@ -1,0 +1,92 @@
+<div>
+  <h1 class="text-3xl font-bold text-gray-800 text-center my-8">
+    Dashboard de Finanzas Personales
+  </h1>
+
+  <main class="max-w-2xl mx-auto bg-[#d5d5f7] p-6 rounded-lg shadow-lg">
+    <section>
+      <h2 class="text-2xl font-bold text-black-800 mb-3">Nueva Transacción</h2>
+
+      <form id="transactionForm" class="mb-4">
+        <fieldset class="border p-4 rounded-md">
+          <legend class="text-lg font-semibold text-black-800">
+            Datos de la Transacción
+          </legend>
+          <div class="mb-2">
+            <label for="description" class="block text-black-800">
+              Descripción
+            </label>
+            <input
+              type="text"
+              id="description"
+              class="w-full p-2 border rounded-md"
+              required
+            />
+          </div>
+
+          <div class="mb-2">
+            <label for="amount" class="block text-black-800">Monto</label>
+            <input
+              type="number"
+              id="amount"
+              class="w-full p-2 border rounded-md"
+              required
+            />
+          </div>
+
+          <div class="mb-2">
+            <label for="type" class="block text-black-800">Tipo</label>
+            <select id="type" class="w-full p-2 border rounded-md">
+              <option value="Ingreso">Ingreso</option>
+              <option value="Gasto">Gasto</option>
+            </select>
+          </div>
+
+          <div class="mb-2">
+            <label for="date" class="block text-black-800">Fecha</label>
+            <input
+              type="date"
+              class="w-full p-2 border rounded-md"
+              id="date"
+              required
+            />
+          </div>
+
+          <button
+            type="submit"
+            class="bg-[#2f2cd8] text-white p-2 rounded-md w-full mt-2 border border-black"
+          >
+            Agregar Transacción
+          </button>
+        </fieldset>
+      </form>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold text-gray-700">
+        Balance Total:
+        <span id="balance" class="text-green-500">S/. 0.00</span>
+      </h2>
+
+      <article>
+        <h3 class="text-lg font-bold text-gray-700 mt-4">
+          Historial de Transacciones
+        </h3>
+        <table
+          class="w-full mt-2 border-collapse border border-black rounded-lg overflow-hidden"
+        >
+          <thead>
+            <tr class="bg-[#2f2cd8] text-white font-bold">
+              <th class="p-2 border">Descripción</th>
+              <th class="p-2 border">Monto</th>
+              <th class="p-2 border">Tipo</th>
+              <th class="p-2 border">Fecha</th>
+              <th class="p-2 border">Acción</th>
+            </tr>
+          </thead>
+          <tbody id="transactionList"></tbody>
+        </table>
+      </article>
+    </section>
+  </main>
+</div>
