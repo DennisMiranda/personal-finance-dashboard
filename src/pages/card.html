@@ -1,91 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta ="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cards</title>
     <link rel="stylesheet" href="../css/style.css">
-  </head>
-  <body class="p-6">
-    <div class="mx-auto max-w-6xl">
+</head>
+  
+<body>
+
+    <!-- Tarjetas-->
+    <div class="p-6 mx-auto max-w-6xl">
       <h1 class="mt-6 mb-6 text-3xl font-bold text-[#1f2c73]">Finanzas personales</h1>
+
       <div class="mx-auto max-w-6xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <div class="rounded-xl border-1 border-[#a6a6a6] p-1.5">
-          <div class="flex justify-between text-zinc-400">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="size-8">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-            </svg>
-            <button>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="size-6.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" />
-              </svg>
+
+        <!-- Tarjeta Saldo Actual-->
+        <div class="rounded-xl border-1 border-[#a6a6a6] p-1.5 shadow-md">
+          <div class="flex justify-between mx-1">
+            <img class="w-9 p-1" src="../assets/img/saldo-actual.png" alt="">
+            <button class="cursor-pointer">
+              <img class="w-6" src="../assets/img/more.png" alt="">
             </button>
           </div>
-          <h2 class="text-[#7184ad]">Saldo actual</h2>
+          <h2 class="text-[#7184ad] text-lg">Saldo actual</h2>
           <div class="flex justify-between">
-            <p class="text-2xl font-bold text-[#1f2c73]" id="saldo-actual">S/. 0,000</p>
+            <span class="text-2xl font-bold text-[#1f2c73]" id="saldo-actual">S/. 0,000</span>
           <div class="container w-19 h-8 pt-0.5 flex justify-center rounded-2xl bg-[#e5fff1] font-bold text-[#00bf63]">
-            <p class="">0.00%</p>
+            <span class="">0.00%</span>
           </div>
         </div>
       </div>
-      <div class="rounded-xl border-1 border-[#a6a6a6] p-1.5">
-          <div class="flex justify-between text-zinc-400">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="size-8">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-            </svg>
-            <button>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="size-6.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" />
-              </svg>
+
+      <!-- Tarjeta Ingresos-->
+      <div class="rounded-xl border-1 border-[#a6a6a6] p-1.5 shadow-md">
+          <div class="flex justify-between mx-1">
+            <img class="w-9 p-1" src="../assets/img/ingresos.png" alt="">
+            <button class="cursor-pointer">
+              <img class="w-6" src="../assets/img/more.png" alt="">
             </button>
           </div>
-          <h2 class="text-[#7184ad]">Saldo actual</h2>
+          <h2 class="text-[#7184ad] text-lg">Ingresos</h2>
           <div class="flex justify-between">
-            <p class="text-2xl font-bold text-[#1f2c73]" id="saldo-actual">S/. 0,000</p>
+            <span class="text-2xl font-bold text-[#1f2c73]" id="ingresos">S/. 0,000</span>
           <div class="container w-19 h-8 pt-0.5 flex justify-center rounded-2xl bg-[#e5fff1] font-bold text-[#00bf63]">
-            <p class="">0.00%</p>
+            <span class="">0.00%</span>
           </div>
         </div>
       </div>
-      <div class="rounded-xl border-1 border-[#a6a6a6] p-1.5">
-          <div class="flex justify-between text-zinc-400">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="size-8">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-            </svg>
-            <button>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="size-6.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" />
-              </svg>
+
+      <!-- Tarjeta Gastos-->
+      <div class="rounded-xl border-1 border-[#a6a6a6] p-1.5 shadow-md">
+          <div class="flex justify-between mx-1">
+            <img class="w-9 p-1" src="../assets/img/gastos.png" alt="">
+            <button class="cursor-pointer">
+              <img class="w-6" src="../assets/img/more.png" alt="">
             </button>
           </div>
-          <h2 class="text-[#7184ad]">Saldo actual</h2>
+          <h2 class="text-[#7184ad] text-lg">Gastos</h2>
           <div class="flex justify-between">
-            <p class="text-2xl font-bold text-[#1f2c73]" id="saldo-actual">S/. 0,000</p>
+            <span class="text-2xl font-bold text-[#1f2c73]" id="gastos">S/. 0,000</span>
           <div class="container w-19 h-8 pt-0.5 flex justify-center rounded-2xl bg-[#e5fff1] font-bold text-[#00bf63]">
-            <p class="">0.00%</p>
+            <span class="">0.00%</span>
           </div>
         </div>
       </div>
-      <div class="rounded-xl border-1 border-[#a6a6a6] p-1.5">
-          <div class="flex justify-between text-zinc-400">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="size-8">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-            </svg>
-            <button>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="size-6.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" />
-              </svg>
+
+      <!-- Tarjeta Ahorro-->
+      <div class="rounded-xl border-1 border-[#a6a6a6] p-1.5 shadow-md">
+          <div class="flex justify-between mx-1">
+            <img class="w-9 p-1" src="../assets/img/ahorro.png" alt="">
+            <button class="cursor-pointer">
+              <img class="w-6" src="../assets/img/more.png" alt="">
             </button>
           </div>
-          <h2 class="text-[#7184ad]">Saldo actual</h2>
+          <h2 class="text-[#7184ad] text-lg">Ahorro</h2>
           <div class="flex justify-between">
-            <p class="text-2xl font-bold text-[#1f2c73]" id="saldo-actual">S/. 0,000</p>
+            <span class="text-2xl font-bold text-[#1f2c73]" id="ahorro">S/. 0,000</span>
           <div class="container w-19 h-8 pt-0.5 flex justify-center rounded-2xl bg-[#e5fff1] font-bold text-[#00bf63]">
-            <p class="">0.00%</p>
+            <span class="">0.00%</span>
           </div>
         </div>
       </div>
     </div>
-  </body>
+
+</body>
 </html>
