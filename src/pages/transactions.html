@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1 class="text-3xl font-bold text-gray-800 text-center my-6">
+        Operaciones
+      </h1>
+
+      <main class="max-w-6xl mx-auto p-6 rounded-lg shadow-lg">
+        <section class="transactionsForm">
+          <div class="flex items-center gap-15 mb-10">
+            <img src="../assets/img/image.png" alt="" class="w-[40%] h-[40%]" />
+            <div class="w-full shadow-2xl rounded-md" id="formMain">
+              <nav class="flex bg-[#ff2326] rounded-t-md" id="nav_tab">
+                <h2
+                  id="tabGastos"
+                  class="px-5 py-3 w-1/2 text-center cursor-pointer font-bold text-2xl rounded-br-lg"
+                >
+                  Gastos
+                </h2>
+                <h2
+                  id="tabIngresos"
+                  class="px-5 py-3 w-1/2 text-center cursor-pointer bg-white rounded-bl-lg shadow-2xs text-2xl font-bold"
+                >
+                  Ingresos
+                </h2>
+              </nav>
+              <form
+                id="formGastos"
+                class="p-4 border-2 border-[#ff2326] rounded-b-lg"
+              >
+                <div class="mb-2">
+                  <label for="date" class="block font-bold">Fecha</label>
+                  <input
+                    type="date"
+                    class="w-full p-2 border rounded-md"
+                    id="dateGasto"
+                    required
+                  />
+                </div>
+
+                <div class="mb-2">
+                  <label for="type" class="block font-bold">Categoria</label>
+                  <select id="typeGasto" class="w-full p-2 border rounded-md">
+                    <option>Vivienda</option>
+                    <option>Alimentación</option>
+                    <option>Transporte</option>
+                    <option>Salud</option>
+                    <option>Educación</option>
+                    <option>Finanzas / Deudas</option>
+                    <option>Entretenimiento</option>
+                    <option>Compras personales</option>
+                    <option>Suscripciones y membresías</option>
+                    <option>Familia y regalos</option>
+                  </select>
+                </div>
+
+                <div class="mb-2">
+                  <label for="amount" class="block font-bold">Monto</label>
+                  <input
+                    type="number"
+                    id="montoGasto"
+                    class="w-full p-2 border rounded-md"
+                    required
+                  />
+                </div>
+
+                <div class="mb-2">
+                  <label for="description" class="block font-bold">
+                    Descripción
+                  </label>
+                  <input
+                    type="text"
+                    id="descriptionGasto"
+                    class="w-full p-2 border rounded-md"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  class="bg-[#ff2326] text-white p-2 rounded-md w-full mt-2 border font-bold"
+                  id="btnGasto"
+                >
+                  Agregar Gasto
+                </button>
+              </form>
+
+              <form id="formIngresos" class="p-4 hidden border-2 rounded-b-lg">
+                <div class="mb-2">
+                  <label for="date" class="block font-bold">Fecha</label>
+                  <input
+                    type="date"
+                    class="w-full p-2 border rounded-md"
+                    id="dateIngreso"
+                    required
+                  />
+                </div>
+
+                <div class="mb-2">
+                  <label for="type" class="block font-bold">Categoria</label>
+                  <select id="typeIngreso" class="w-full p-2 border rounded-md">
+                    <option value="gasto">Sueldo</option>
+                    <option value="gasto">Bonos</option>
+                    <option value="gasto">Ventas</option>
+                    <option value="gasto">Freelance</option>
+                    <option value="gasto">Donaciones / Premios</option>
+                  </select>
+                </div>
+
+                <div class="mb-2">
+                  <label for="amount" class="block font-bold">Monto</label>
+                  <input
+                    type="number"
+                    id="montoIngreso"
+                    class="w-full p-2 border rounded-md"
+                    required
+                  />
+                </div>
+
+                <div class="mb-2">
+                  <label for="description" class="block font-bold">
+                    Descripción
+                  </label>
+                  <input
+                    type="text"
+                    id="descriptionIngreso"
+                    class="w-full p-2 border rounded-md"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  class="bg-[#00a254] text-white p-2 rounded-md w-full mt-2 font-bold"
+                  id="btnIngreso"
+                >
+                  Agregar Ingreso
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <h2 class="text-xl font-semibold text-gray-700">
+          Balance Total:
+          <span id="balance" class="text-green-500">S/. 0.00</span>
+        </h2>
+        <section class="flex gap-3">
+          <table
+            class="w-full mt-2 border-collapse border border-black rounded-lg overflow-hidden"
+          >
+            <thead>
+              <tr class="bg-[#2f2cd8] text-white font-bold">
+                <th class="p-2 border">ID</th>
+                <th class="p-2 border">Fecha</th>
+                <th class="p-2 border">Categoria</th>
+                <th class="p-2 border">Monto</th>
+                <th class="p-2 border">Descripcción</th>
+                <th class="p-2 border">🗑️</th>
+              </tr>
+            </thead>
+            <tbody id="table" class="text-center border-2"></tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
