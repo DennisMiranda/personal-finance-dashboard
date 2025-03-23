@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
     celda_ID_Gasto.innerHTML = ID_Gasto;
     celda_dateGasto.innerHTML = dateGasto;
     celda_typeGasto.innerHTML = typeGasto;
-    celda_montoGasto.innerHTML = montoGasto * -1;
+    celda_montoGasto.innerHTML = montoGasto;
     celda_descriptionGasto.innerHTML = descriptionGasto;
 
     saveTransaction({
@@ -102,7 +102,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //Dando funcionalidad al boton eliminar
     eliminarGasto.addEventListener('click', function () {
+      let filaEliminada = this.closest('tr'); //obtengo la fila en la que apreto el boton eliminar.
+      let celdaGastoEliminado = Number(filaEliminada.cells[3].textContent);
       fila.remove();
+      balanceGasto = balanceGasto - celdaGastoEliminado;
+      balance.innerHTML = '';
+      balanceTotal = balanceIngreso - balanceGasto;
+      balance.innerHTML = balanceTotal;
     });
     celda_eliminarGasto.appendChild(eliminarGasto);
 
@@ -173,7 +179,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //Dando funcionalidad al boton eliminar
     eliminarIngreso.addEventListener('click', function () {
+      let filaEliminada = this.closest('tr'); //Ontengo la fila en la que se encuentra el boton eliminar.
+      let celdaIngresoEliminada = Number(filaEliminada.cells[3].textContent);
       fila.remove();
+
+      balanceIngreso = balanceIngreso - celdaIngresoEliminada;
+      balance.innerHTML = '';
+      balanceTotal = balanceIngreso - balanceGasto;
+      balance.innerHTML = balanceTotal;
     });
     celda_eliminarIngreso.appendChild(eliminarIngreso);
 
