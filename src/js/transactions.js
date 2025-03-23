@@ -44,11 +44,13 @@ document.addEventListener('DOMContentLoaded', function () {
   //---------------------------------------------
   let contGasto = 0,
     contIngreso = 0,
-    balanceActual = 0;
+    balanceIngreso = 0,
+    balanceGasto = 0,
+    balanceTotal = 0;
   btnGasto.addEventListener('click', function () {
     let dateGasto = document.getElementById('dateGasto').value;
     let typeGasto = document.getElementById('typeGasto').value;
-    let montoGasto = document.getElementById('montoGasto').value;
+    let montoGasto = Number(document.getElementById('montoGasto').value);
     let descriptionGasto = document.getElementById('descriptionGasto').value;
 
     //validando los campos del formulario esten llenos
@@ -106,8 +108,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById('formGastos').reset();
 
-    balanceActual = balanceActual + montoGasto * -1;
-    balance.innerHTML = balanceActual;
+    //Mostrando el balance de ingresos y gastos
+    balanceGasto = balanceGasto + montoGasto;
+    balance.innerHTML = '';
+    balanceTotal = balanceIngreso - balanceGasto;
+    balance.innerHTML = balanceTotal;
   });
 
   //---------------------------------------------
@@ -116,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
   btnIngreso.addEventListener('click', function () {
     let dateIngreso = document.getElementById('dateIngreso').value;
     let typeIngreso = document.getElementById('typeIngreso').value;
-    let montoIngreso = document.getElementById('montoIngreso').value;
+    let montoIngreso = Number(document.getElementById('montoIngreso').value);
     let descriptionIngreso =
       document.getElementById('descriptionIngreso').value;
 
@@ -173,7 +178,11 @@ document.addEventListener('DOMContentLoaded', function () {
     celda_eliminarIngreso.appendChild(eliminarIngreso);
 
     document.getElementById('formIngresos').reset();
-    balanceActual = balanceActual + montoIngreso;
-    balance.innerHTML = balanceActual;
+
+    //Mostrando el balance de ingresos y gastos
+    balanceIngreso = balanceIngreso + montoIngreso;
+    balance.innerHTML = '';
+    balanceTotal = balanceIngreso - balanceGasto;
+    balance.innerHTML = balanceTotal;
   });
 });
