@@ -1,3 +1,5 @@
+import { saveTransaction } from './utils/localstorage';
+
 document.addEventListener('DOMContentLoaded', function () {
   // Funcionalidad a los TAB de ingresos y gasto
   const formGastos = document.getElementById('formGastos');
@@ -77,6 +79,15 @@ document.addEventListener('DOMContentLoaded', function () {
     celda_montoGasto.innerHTML = montoGasto * -1;
     celda_descriptionGasto.innerHTML = descriptionGasto;
 
+    saveTransaction({
+      id: ID_Gasto,
+      date: dateGasto,
+      category: typeGasto,
+      amount: montoGasto,
+      description: descriptionGasto,
+      type: 'Gasto',
+    });
+
     //Dando estilo a algunas celdas
     celda_montoGasto.classList.add('text-red-600');
     celda_montoGasto.classList.add('font-bold');
@@ -136,6 +147,15 @@ document.addEventListener('DOMContentLoaded', function () {
     celda_typeIngreso.innerHTML = typeIngreso;
     celda_montoIngreso.innerHTML = montoIngreso;
     celda_descriptionIngreso.innerHTML = descriptionIngreso;
+
+    saveTransaction({
+      id: ID_Ingreso,
+      date: dateIngreso,
+      category: typeIngreso,
+      amount: montoIngreso,
+      description: descriptionIngreso,
+      type: 'Ingreso',
+    });
 
     celda_montoIngreso.classList.add('text-green-600');
     celda_montoIngreso.classList.add('font-bold');
