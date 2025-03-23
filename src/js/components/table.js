@@ -3,7 +3,6 @@ import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 import transactions from '../../assets/data/transactions.json';
-console.log(transactions);
 
 import { createGrid, themeQuartz } from 'ag-grid-community';
 
