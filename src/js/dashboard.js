@@ -44,6 +44,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Create tables
-  new TransactionsTable('#table-expenses', 'Gasto');
-  new TransactionsTable('#table-incomes', 'Ingreso');
+  const tableExpenses = new TransactionsTable(
+    '#table-expenses',
+    'Gasto',
+    transactions
+  );
+  const tableIncomes = new TransactionsTable(
+    '#table-incomes',
+    'Ingreso',
+    transactions
+  );
+
+  tableExpenses.show();
+  tableIncomes.show();
 });
