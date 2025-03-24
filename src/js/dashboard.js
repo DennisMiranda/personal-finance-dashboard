@@ -3,6 +3,9 @@ import { TransactionsTable } from './components/table';
 import { barChart } from './components/barChart';
 import { loadTransactions } from './utils/localstorage';
 import { Card } from './components/cards';
+import './components/filter';
+
+
 
 // Charge DOM and instance objects
 document.addEventListener('DOMContentLoaded', () => {
