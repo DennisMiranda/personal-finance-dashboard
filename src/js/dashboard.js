@@ -6,7 +6,7 @@ import { Card } from './components/cards';
 
 // Charge DOM and instance objects
 document.addEventListener('DOMContentLoaded', () => {
-  const transactions = loadTransactions();
+  const transactions = loadTransactions() || [];
 
   // Create Cards
   const cardContainerId = 'cards-container';
