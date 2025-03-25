@@ -1,4 +1,5 @@
 // Imports
+import { TransactionFilter } from './components/filter.js';
 import { TransactionsTable } from './components/table';
 import { BarChart } from './components/barChart';
 import { loadTransactions } from './utils/localstorage';
@@ -6,6 +7,10 @@ import { Card } from './components/cards';
 
 // Charge DOM and instance objects
 document.addEventListener('DOMContentLoaded', () => {
+  // Inicializar el filtro de fechas y tablas
+  const transactionFilter = new TransactionFilter();
+  transactionFilter.initDateSelectors();
+
   const transactions = loadTransactions() || [];
 
   // Create Cards
@@ -44,19 +49,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Create tables
-  const tableExpenses = new TransactionsTable(
-    '#table-expenses',
-    'Gasto',
-    transactions
-  );
-  const tableIncomes = new TransactionsTable(
-    '#table-incomes',
-    'Ingreso',
-    transactions
-  );
+  // const tableExpenses = new TransactionsTable(
+  //   '#table-expenses',
+  //   'Gasto',
+  //   transactions
+  // );
+  // const tableIncomes = new TransactionsTable(
+  //   '#table-incomes',
+  //   'Ingreso',
+  //   transactions
+  // );
 
-  tableExpenses.show();
-  tableIncomes.show();
+  // tableExpenses.show();
+  // tableIncomes.show();
 
   // Create BarChart
   const currentYear = new Date().getFullYear(); // Año actual dinámico
