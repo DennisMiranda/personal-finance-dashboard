@@ -1,6 +1,6 @@
 // Imports
 import { TransactionsTable } from './components/table';
-import { barChart } from './components/barChart';
+import { BarChart } from './components/barChart';
 import { loadTransactions } from './utils/localstorage';
 import { Card } from './components/cards';
 
@@ -57,4 +57,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
   tableExpenses.show();
   tableIncomes.show();
+
+  // Create BarChart
+  const currentYear = new Date().getFullYear(); // Año actual dinámico
+  const labels = Array.from({ length: 12 }, (_, i) =>
+    String(i + 1).padStart(2, '0')
+  );
+  const datasetConfig = [
+    {
+      label: 'Gastos',
+      type: 'Gasto',
+      color: 'rgba(213, 213, 247, 1)',
+      borderRadius: 3,
+    },
+    {
+      label: 'Ingresos',
+      type: 'Ingreso',
+      color: 'rgba(47, 44, 216, 1)',
+      borderRadius: 3,
+    },
+  ];
+
+  const barChart = new BarChart('cash-flow-chart');
+  barChart.renderData(transactions, labels, datasetConfig, currentYear);
 });
