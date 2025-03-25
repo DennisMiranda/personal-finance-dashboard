@@ -64,7 +64,8 @@ body{
 }
 
 .barra-lateral .nombre-pagina i{
-  
+
+
     min-width: 50px;
     font-size: 40px;
     cursor: pointer;
@@ -75,29 +76,12 @@ body{
     font-size: 25px;
 }
 
-/*----> Boton*/
-
-.barra-lateral .boton{
-    width: 100%;
-    height: 45px;
-    margin-bottom: 30px;
-    display: flex;
-    align-items: center;
-    border : none;
-    border-radius: 10px;
-    background-color: black ;
-    color: white;
-}
-
-.barra-lateral .boton i {
-    min-width: 50px;
-    font-size: 25px;
-}
 
 /*------------> Menu de navegacion*/
 .barra-lateral .navegacion li {
     list-style: none;
     display: flex;
+    margin-top: 20px;
     margin-bottom: 5px ;
     color: aliceblue;
 }
@@ -119,9 +103,9 @@ body{
 }
 
 .barra-lateral .navegacion i {
-
     min-width: 50px;
     font-size: 20px;
+    align-content: center;
 }
 
 .barra-lateral .linea {
