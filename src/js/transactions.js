@@ -83,7 +83,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     saveTransaction({
       id: ID_Gasto,
-      date: dateGasto,
+      // Guardar fecha en formato ISO, sin zona horaria
+      date: dateGasto + 'T00:00:00',
       category: typeGasto,
       amount: montoGasto,
       description: descriptionGasto,
@@ -161,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     saveTransaction({
       id: ID_Ingreso,
-      date: dateIngreso,
+      date: dateIngreso + 'T00:00:00',
       category: typeIngreso,
       amount: montoIngreso,
       description: descriptionIngreso,

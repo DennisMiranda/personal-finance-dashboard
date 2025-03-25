@@ -1,4 +1,5 @@
 import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
+import { convertDate } from '../utils/convertDate';
 // Register all Community features
 ModuleRegistry.registerModules([AllCommunityModule]);
 
@@ -78,8 +79,14 @@ class TransactionsTable extends Table {
         headerName: columnsHeaderNames[key],
         cellRenderer: key === 'category' ? CategoryRenderer : undefined,
         cellStyle: key === 'amount' ? { textAlign: 'right' } : undefined,
-        valueFormatter:
-          key === 'amount' ? (params) => (+params.value).toFixed(2) : undefined,
+        valueFormatter: (params) => {
+          if (key === 'amount') {
+            return (+params.value).toFixed(2);
+          } else if (key === 'date') {
+            return convertDate(params.value);
+          }
+          return params.value;
+        },
       }));
   }
 
