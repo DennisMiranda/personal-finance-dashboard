@@ -1,8 +1,9 @@
-// dashboard.js
+// Imports
 import { TransactionFilter } from './components/filter.js';
-import { BarChart } from './components/barChart.js';
-import { Card } from './components/cards.js';
-import { loadTransactions } from './utils/localstorage.js';
+import { TransactionsTable } from './components/table';
+import { BarChart } from './components/barChart';
+import { loadTransactions } from './utils/localstorage';
+import { Card } from './components/cards';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Inicializar el filtro de fechas y tablas
