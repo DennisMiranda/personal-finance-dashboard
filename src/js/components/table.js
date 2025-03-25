@@ -72,6 +72,10 @@ class TransactionsTable extends Table {
   }
 
   setColumns() {
+    if (!this.transactions.length) {
+      this.columns = [];
+      return;
+    }
     this.columns = Object.keys(this.transactions[0])
       .filter((key) => !['id', 'type'].includes(key))
       .map((key) => ({
