@@ -5,84 +5,170 @@ import { BarChart } from './components/barChart';
 import { loadTransactions } from './utils/localstorage';
 import { Card } from './components/cards';
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Inicializar el filtro de fechas y tablas
-  const transactionFilter = new TransactionFilter();
-  transactionFilter.initDateSelectors();
+class Dashboard {
+  constructor() {
+    this.transactions = loadTransactions(); // Cargar transacciones almacenadas
 
-  // Cargar transacciones para gráficos y tarjetas (sin filtrar por fecha)
-  const transactions = loadTransactions() || [];
-  const currentYear = new Date().getFullYear();
-  const labels = Array.from({ length: 12 }, (_, i) =>
-    String(i + 1).padStart(2, '0')
-  );
+    // Definir propiedades para manejar los componentes
+    this.barChart = null;
+    this.barChartOptions = {};
+    this.tableExpenses = null;
+    this.tableIncomes = null;
+  }
 
-  // =====================================
-  // 1. Inicializar Tarjetas (Cards)
-  // =====================================
-  const cardContainerId = 'cards-container';
-  const moreIcon = 'fa-solid fa-ellipsis-vertical';
-  const cards = [
-    {
-      icons: ['fa-solid fa-wallet', moreIcon],
-      title: 'Total',
-      amount: calculateTotalBalance(transactions),
-      indicator: 1.2,
-    },
-    {
-      icons: ['fa-solid fa-money-bill-trend-up', moreIcon],
-      title: 'Ingresos',
-      amount: calculateTotalByType(transactions, 'Ingreso'),
-      indicator: 1.2,
-    },
-    {
-      icons: ['fa-solid fa-sack-xmark', moreIcon],
-      title: 'Gastos',
-      amount: calculateTotalByType(transactions, 'Gasto'),
-      indicator: 1.2,
-    },
-    {
-      icons: ['fa-solid fa-piggy-bank', moreIcon],
-      title: 'Ahorro',
-      amount: calculateSavings(transactions),
-      indicator: 1.2,
-    },
-  ];
+  // Filtrar transacciones por año y mes (opcional)
+  filterByDate(year, month = null) {
+    return this.transactions.filter((transaction) => {
+      const date = new Date(transaction.date);
+      const isSameYear = date.getFullYear() === parseInt(year);
+      if (month) {
+        const isSameMonth =
+          String(date.getMonth() + 1).padStart(2, '0') === month;
 
-  cards.forEach((card) => {
-    new Card(
-      cardContainerId,
-      card.icons,
-      card.title,
-      card.amount,
-      card.indicator
+        return isSameYear && isSameMonth;
+      }
+      return isSameYear;
+    });
+  }
+
+  createCards(transactions) {
+    const cardContainerId = 'cards-container';
+    const moreIcon = 'fa-solid fa-ellipsis-vertical';
+    const cards = [
+      {
+        icons: ['fa-solid fa-wallet', moreIcon],
+        title: 'Total',
+        amount: calculateTotalBalance(transactions),
+        indicator: 1.2,
+      },
+      {
+        icons: ['fa-solid fa-money-bill-trend-up', moreIcon],
+        title: 'Ingresos',
+        amount: calculateTotalByType(transactions, 'Ingreso'),
+        indicator: 1.2,
+      },
+      {
+        icons: ['fa-solid fa-sack-xmark', moreIcon],
+        title: 'Gastos',
+        amount: calculateTotalByType(transactions, 'Gasto'),
+        indicator: 1.2,
+      },
+      {
+        icons: ['fa-solid fa-piggy-bank', moreIcon],
+        title: 'Ahorro',
+        amount: calculateSavings(transactions),
+        indicator: 1.2,
+      },
+    ];
+
+    cards.forEach((card) => {
+      new Card(
+        cardContainerId,
+        card.icons,
+        card.title,
+        card.amount,
+        card.indicator
+      );
+    });
+  }
+
+  createTables(transactions) {
+    // Renderizar las tablas con los datos filtrados
+    this.tableExpenses = new TransactionsTable(
+      '#table-expenses',
+      'Gasto',
+      transactions
     );
-  });
+    this.tableExpenses.show();
 
-  // =====================================
-  // 2. Inicializar Gráfico de Barras
-  // =====================================
-  const barChart = new BarChart('cash-flow-chart');
-  barChart.renderData(
-    transactions,
-    labels,
-    [
-      {
-        label: 'Gastos',
-        type: 'Gasto',
-        color: 'rgba(213, 213, 247, 1)',
-        borderRadius: 3,
-      },
-      {
-        label: 'Ingresos',
-        type: 'Ingreso',
-        color: 'rgba(47, 44, 216, 1)',
-        borderRadius: 3,
-      },
-    ],
-    currentYear
-  );
-});
+    this.tableIncomes = new TransactionsTable(
+      '#table-incomes',
+      'Ingreso',
+      transactions
+    );
+    this.tableIncomes.show();
+  }
+
+  createCharts(transactions, currentYear) {
+    // Inicializar las opciones del gráfico de barras
+    this.barChartOptions = {
+      labels: Array.from({ length: 12 }, (_, i) =>
+        String(i + 1).padStart(2, '0')
+      ),
+      datasetConfig: [
+        {
+          label: 'Gastos',
+          type: 'Gasto',
+          color: 'rgba(213, 213, 247, 1)',
+          borderRadius: 3,
+        },
+        {
+          label: 'Ingresos',
+          type: 'Ingreso',
+          color: 'rgba(47, 44, 216, 1)',
+          borderRadius: 3,
+        },
+      ],
+    };
+
+    this.barChart = new BarChart('cash-flow-chart');
+    this.barChart.renderData(
+      transactions,
+      this.barChartOptions.labels,
+      this.barChartOptions.datasetConfig,
+      currentYear
+    );
+  }
+
+  createComponents(month, year) {
+    const yearlyTransactions = this.filterByDate(year);
+    this.createCharts(yearlyTransactions, year);
+
+    const monthlyTransactions = this.filterByDate(year, month);
+    this.createCards(monthlyTransactions);
+    this.createTables(monthlyTransactions);
+  }
+
+  updateComponents(month, year) {
+    const yearlyTransactions = this.filterByDate(year);
+    // Actualizar cards
+    // Actualizar gráficos
+    this.barChart.renderData(
+      yearlyTransactions,
+      this.barChartOptions.labels,
+      this.barChartOptions.datasetConfig,
+      year
+    );
+
+    const monthlyTransactions = this.filterByDate(year, month);
+    // Actualizar tablas
+    this.tableExpenses.update(monthlyTransactions);
+    this.tableIncomes.update(monthlyTransactions);
+  }
+
+  // Iniciar dashboard y escuchar eventos de filtro
+  init() {
+    // Inicializar el filtro de fechas
+    const transactionFilter = new TransactionFilter();
+    transactionFilter.initDateSelectors();
+
+    // Escuchar cambios en los filtros
+    document.addEventListener('filterChanged', (event) => {
+      const { month, year } = event.detail;
+
+      this.updateComponents(month, year);
+    });
+
+    this.createComponents(
+      transactionFilter.currentMonth,
+      transactionFilter.currentYear
+    );
+  }
+}
+
+// Iniciar el dashboard
+const dashboard = new Dashboard();
+dashboard.init();
 
 // =====================================
 // Funciones auxiliares para cálculos

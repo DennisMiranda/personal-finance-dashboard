@@ -56,11 +56,13 @@ class Table {
   constructor(containerId, options) {
     this.id = containerId;
     this.options = options;
+    // Api de aggrid para controlar la tabla
+    this.gridApi = null;
   }
 
   show() {
     const myGridElement = document.querySelector(this.id);
-    createGrid(myGridElement, this.options);
+    this.gridApi = createGrid(myGridElement, this.options);
   }
 }
 
@@ -94,14 +96,19 @@ class TransactionsTable extends Table {
       }));
   }
 
+  filterByType(transactions) {
+    this.transactions = transactions.filter(
+      (transaction) => transaction['type'] == this.type
+    );
+  }
+
   show() {
     this.setColumns();
+    this.filterByType(this.transactions);
 
     this.options = {
       theme: themeQuartz.withParams({ wrapperBorder: false }),
-      rowData: this.transactions.filter(
-        (transaction) => transaction['type'] == this.type
-      ),
+      rowData: this.transactions,
       columnDefs: this.columns,
       autoSizeStrategy: {
         type: 'fitCellContents',
@@ -109,6 +116,11 @@ class TransactionsTable extends Table {
     };
 
     super.show();
+  }
+
+  update(transactions) {
+    this.filterByType(transactions);
+    this.gridApi.setGridOption('rowData', this.transactions);
   }
 }
 

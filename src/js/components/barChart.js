@@ -39,7 +39,7 @@ class TransactionProcessor {
 
     for (let i = 0; i < 12; i++) {
       totalByMonth[i] =
-        totals[`${selectedYear}-${i < 10 ? `0${i + 1}` : i}`] || 0;
+        totals[`${selectedYear}-${(i + 1).toString().padStart(2, '0')}`] || 0;
     }
 
     return totalByMonth;
@@ -84,7 +84,12 @@ export class BarChart {
         })
       );
 
-      this.renderChart(labels, datasets);
+      if (this.chartInstance) {
+        this.chartInstance.data = { labels, datasets };
+        this.chartInstance.update();
+      } else {
+        this.renderChart(labels, datasets);
+      }
     } catch (error) {
       console.error('Error al cargar datos:', error);
     }
