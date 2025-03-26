@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.chart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 600px;
+    height: 600px;
+    margin: auto;
+}
+
+
+.content {
+    width: 90%;
+    margin: 0 auto;
+}
+
+canvas {
+    max-width: 300px;
+    max-height: 300px;
+    border: 1px;
+}
+
