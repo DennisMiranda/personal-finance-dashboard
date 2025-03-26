@@ -1,15 +1,23 @@
 // Imports
+import { BarChart } from './components/barChart';
+import { Card } from './components/cards';
 import { TransactionFilter } from './components/filter.js';
 import { TransactionsTable } from './components/table';
-import { BarChart } from './components/barChart';
+import {
+  getAmountsAndIndicators,
+  getBalanceByYearMonth,
+  getIndicators,
+} from './utils/cardAmounts.js';
 import { loadTransactions } from './utils/localstorage';
-import { Card } from './components/cards';
 
 class Dashboard {
   constructor() {
     this.transactions = loadTransactions(); // Cargar transacciones almacenadas
+    // Propiedad que almacena los balances por año y mes
+    this.balanceByYearMonth = [];
 
     // Definir propiedades para manejar los componentes
+    this.cards = [];
     this.barChart = null;
     this.barChartOptions = {};
     this.tableExpenses = null;
@@ -31,43 +39,65 @@ class Dashboard {
     });
   }
 
-  createCards(transactions) {
+  createCards(month, year) {
     const cardContainerId = 'cards-container';
     const moreIcon = 'fa-solid fa-ellipsis-vertical';
+
+    const { amounts, indicators } = getAmountsAndIndicators(
+      this.balanceByYearMonth,
+      month,
+      year
+    );
+
     const cards = [
       {
+        id: 'totalBalance',
         icons: ['fa-solid fa-wallet', moreIcon],
-        title: 'Total',
-        amount: calculateTotalBalance(transactions),
-        indicator: 1.2,
+        title: 'Saldo Actual',
+        amount: amounts[0],
+        indicator: indicators[0],
       },
       {
+        id: 'monthlyInconme',
         icons: ['fa-solid fa-money-bill-trend-up', moreIcon],
-        title: 'Ingresos',
-        amount: calculateTotalByType(transactions, 'Ingreso'),
-        indicator: 1.2,
+        title: 'Ingreso mensual',
+        amount: amounts[1],
+        indicator: indicators[1],
       },
       {
+        id: 'monthlyExpense',
         icons: ['fa-solid fa-sack-xmark', moreIcon],
-        title: 'Gastos',
-        amount: calculateTotalByType(transactions, 'Gasto'),
-        indicator: 1.2,
+        title: 'Gasto mensual',
+        amount: amounts[2],
+        indicator: indicators[2],
       },
       {
+        id: 'monthlySavings',
         icons: ['fa-solid fa-piggy-bank', moreIcon],
-        title: 'Ahorro',
-        amount: calculateSavings(transactions),
-        indicator: 1.2,
+        title: 'Ahorro mensual',
+        amount: amounts[3],
+        indicator: indicators[3],
       },
+      {
+        id: 'previousBalance',
+        icons: ['fa-solid fa-history', moreIcon],
+        title: 'Saldo anterior',
+        amount: amounts[4],
+        indicator: null,
+      },
+      ,
     ];
 
     cards.forEach((card) => {
-      new Card(
-        cardContainerId,
-        card.icons,
-        card.title,
-        card.amount,
-        card.indicator
+      this.cards.push(
+        new Card(
+          cardContainerId,
+          card.id,
+          card.icons,
+          card.title,
+          card.amount,
+          card.indicator
+        )
       );
     });
   }
@@ -122,16 +152,28 @@ class Dashboard {
 
   createComponents(month, year) {
     const yearlyTransactions = this.filterByDate(year);
-    this.createCharts(yearlyTransactions, year);
-
     const monthlyTransactions = this.filterByDate(year, month);
-    this.createCards(monthlyTransactions);
+
+    this.createCards(month, year);
+    this.createCharts(yearlyTransactions, year);
     this.createTables(monthlyTransactions);
   }
 
   updateComponents(month, year) {
     const yearlyTransactions = this.filterByDate(year);
+    const monthlyTransactions = this.filterByDate(year, month);
+
     // Actualizar cards
+    const { amounts, indicators } = getAmountsAndIndicators(
+      this.balanceByYearMonth,
+      month,
+      year
+    );
+
+    amounts.forEach((amount, i) => {
+      this.cards[i].update(amount, indicators[i]);
+    });
+
     // Actualizar gráficos
     this.barChart.renderData(
       yearlyTransactions,
@@ -140,7 +182,6 @@ class Dashboard {
       year
     );
 
-    const monthlyTransactions = this.filterByDate(year, month);
     // Actualizar tablas
     this.tableExpenses.update(monthlyTransactions);
     this.tableIncomes.update(monthlyTransactions);
@@ -151,6 +192,8 @@ class Dashboard {
     // Inicializar el filtro de fechas
     const transactionFilter = new TransactionFilter();
     transactionFilter.initDateSelectors();
+
+    this.balanceByYearMonth = getBalanceByYearMonth(this.transactions);
 
     // Escuchar cambios en los filtros
     document.addEventListener('filterChanged', (event) => {
@@ -169,28 +212,3 @@ class Dashboard {
 // Iniciar el dashboard
 const dashboard = new Dashboard();
 dashboard.init();
-
-// =====================================
-// Funciones auxiliares para cálculos
-// =====================================
-function calculateTotalBalance(transactions) {
-  const incomes = transactions
-    .filter((t) => t.type === 'Ingreso')
-    .reduce((sum, t) => sum + Number(t.amount), 0);
-  const expenses = transactions
-    .filter((t) => t.type === 'Gasto')
-    .reduce((sum, t) => sum + Number(t.amount), 0);
-  return incomes - expenses;
-}
-
-function calculateTotalByType(transactions, type) {
-  return transactions
-    .filter((t) => t.type === type)
-    .reduce((sum, t) => sum + Number(t.amount), 0);
-}
-
-function calculateSavings(transactions) {
-  // Lógica personalizada para ahorros (ej: 10% de ingresos)
-  const totalIncomes = calculateTotalByType(transactions, 'Ingreso');
-  return totalIncomes * 0.1; // 10% de ahorro
-}
