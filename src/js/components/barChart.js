@@ -1,6 +1,6 @@
 import Chart from 'chart.js/auto';
 
-class TransactionProcessor {
+export class TransactionProcessor {
   constructor(transactions) {
     this.transactions = transactions;
   }
@@ -32,6 +32,7 @@ class TransactionProcessor {
       return accumulator;
     }, {});
   }
+
   // Crear arreglo con los montos acumulados
   getProcessedData(type, selectedYear) {
     const totals = this.filterByTypeAndMonth(type, selectedYear);
