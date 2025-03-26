@@ -10,7 +10,40 @@
     <div class="min-h-screen grid grid-cols-1 md:grid-cols-6">
       <!-- Sidebar -->
       <aside class="bg-primary text-white w-full md:col-span-1 p-5 space-y-6">
-        <a id="pageTransactions" href="./transactions.html">Transacción</a>
+        <div class="barra-lateral">
+          <div class="nombre-pagina">
+            <i id="wallet" class="bi bi-wallet"><img src="../assets/img/Logo-yapac-alpha-v2.png" alt="" class="h-10 w-auto mr-3"></i>
+            <span id="titulo-pagina">Yapai Wallet</span>
+          </div>
+          <div class="linea"></div>
+        
+          <nav class="navegacion">
+            <ul>
+                <li>
+                    <a href="#"><i class="fa-solid fa-chart-simple"></i><span>Dashboard</span></a>
+                </li>
+                <li>
+                    <a id="pageTransactions" href="./transactions.html"><i class="fa-solid fa-plus"></i><span>Transacción</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa-solid fa-circle-exclamation"></i><span>Alerts</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
+                </li>
+            </ul>
+          </nav>
+          <div class="linea"></div>
+          <div class="usuario">
+            <img src="../assets/img/men1.jpg" alt="foto de usuario" class="rounded-full">
+            <div class="info-usuario">
+              <div class="nombre-email">
+                <span class="nombre">Usuario de Prueba</span>
+                <span class="email">emaildeprueba@gmail.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </aside>
 
       <!--  Main  Content-->
@@ -22,7 +55,7 @@
             <select id="select-month" class="border p-2 rounded-lg"></select>
             <select id="select-year" class="border p-2 rounded-lg"></select>
           </div>
-        </div>
+
 
         <!-- Cards -->
 

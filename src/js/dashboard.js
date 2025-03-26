@@ -6,9 +6,9 @@ import { TransactionsTable } from './components/table';
 import {
   getAmountsAndIndicators,
   getBalanceByYearMonth,
-  getIndicators,
 } from './utils/cardAmounts.js';
 import { loadTransactions } from './utils/localstorage';
+import { sidebar } from './components/sidebar.js';
 
 class Dashboard {
   constructor() {
