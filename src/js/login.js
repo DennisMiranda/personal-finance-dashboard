@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
       localStorage.removeItem('rememberedUser');
     }
 
-    alert('Inicio de sesión exitoso. Redirigiendo al dashboard...');
+    // alert('Inicio de sesión exitoso. Redirigiendo al dashboard...');
     window.location.href = '../pages/dashboard.html';
   });
 
