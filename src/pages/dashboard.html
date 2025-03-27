@@ -7,78 +7,130 @@
     <link rel="stylesheet" href="../css/dashboard.css" />
   </head>
   <body>
-    <div class="min-h-screen grid grid-cols-1 md:grid-cols-6">
+    <div class="min-h-screen flex">
       <!-- Sidebar -->
-      <aside class="bg-primary text-white w-full md:col-span-1 p-5 space-y-6">
-        <a id="pageTransactions" href="./transactions.html">Transacción</a>
+      <aside
+        class="barra-lateral flex-none bg-primary text-white p-5 space-y-6"
+      >
+        <div class="nombre-pagina">
+          <i id="wallet" class="bi bi-wallet">
+            <img
+              src="../assets/img/Logo-yapac-alpha-v2.png"
+              alt="Logo-yapay"
+              class="h-10 w-auto mr-3"
+            />
+          </i>
+          <span class="font-bold text-lg text-white" id="titulo-pagina">
+            Yapay Wallet
+          </span>
+        </div>
+        <div class="linea"></div>
+
+        <nav class="navegacion">
+          <ul class="text-secondary">
+            <li>
+              <a href="./dashboard.html">
+                <i class="fa-solid fa-chart-simple"></i>
+                <span class="text-lg">Dashboard</span>
+              </a>
+            </li>
+            <li>
+              <a id="pageTransactions" href="./transactions.html">
+                <i class="fa-solid fa-plus"></i>
+                <span class="text-lg">Transacción</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <span class="text-lg">Alertas</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-solid fa-gear"></i>
+                <span class="text-lg">Configuración</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="linea"></div>
+        <div class="usuario text-secondary">
+          <span class="fa-solid fa-user"></span>
+          <div class="info-usuario">
+            <div class="nombre-email text-secondary">
+              <span class="nombre font-semibold">Usuario de Prueba</span>
+              <span class="email text-sm">emaildeprueba@gmail.com</span>
+            </div>
+          </div>
+        </div>
       </aside>
 
       <!--  Main  Content-->
-      <main class="md:col-span-5 p-6">
+      <main class="h-screen overflow-y-hidden flex-1 p-5">
         <!-- Header -->
         <div class="flex justify-between items-center">
-          <h2 class="text-2xl font-bold">Finanzas Personales</h2>
+          <h2 class="text-3xl font-bold text-text">Finanzas Personales</h2>
           <div class="flex gap-2">
-            <select class="border p-2 rounded-lg">
-              <option>Marzo</option>
-              <option>Abril</option>
-            </select>
-            <select class="border p-2 rounded-lg">
-              <option>2025</option>
-              <option>2026</option>
-            </select>
+            <select id="select-month" class="border p-2 rounded-lg"></select>
+            <select id="select-year" class="border p-2 rounded-lg"></select>
           </div>
         </div>
 
-        <!-- Cards -->
+        <section class="h-95/100 overflow-y-auto">
+          <!-- Cards -->
 
-        <div
-          id="cards-container"
-          class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6"
-        ></div>
-
-        <!-- Charts -->
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-          <!-- Chart Cash Flow -->
-          <div class="md:col-span-2 bg-white p-4 shadow rounded-lg">
-            <h3 class="text-lg font-semibold">Flujo de Efectivo</h3>
-            <canvas id="cash-flow-chart"></canvas>
-          </div>
-
-          <!-- Expenses chart -->
-          <div class="bg-white p-4 shadow rounded-lg">
-            <h3 class="text-lg font-semibold">Resumen de Gastos</h3>
-          </div>
-        </div>
-
-        <!-- Expenses and Incomes Tables -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-6">
           <div
-            class="flex-1 p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"
-          >
-            <h2 class="text-lg font-semibold text-text mb-1">
-              Tabla de Gastos
-            </h2>
-            <div
-              id="table-expenses"
-              style="height: 90%"
-              class="min-h-[250px]"
-            ></div>
+            id="cards-container"
+            class="flex gap-4 overflow-x-auto snap-x snap-mandatory px-4 mt-6 sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 md:overflow-hidden"
+          ></div>
+
+          <!-- Charts -->
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+            <!-- Chart Cash Flow -->
+            <div class="md:col-span-2 bg-white p-4 shadow rounded-lg">
+              <h3 class="text-lg font-semibold">Flujo de Efectivo</h3>
+              <canvas
+                id="cash-flow-chart"
+                class="min-h-[180px] max-h-[300px] w-full"
+              ></canvas>
+            </div>
+
+            <!-- Expenses chart -->
+            <div class="bg-white p-4 shadow rounded-lg">
+              <h3 class="text-lg font-semibold">Resumen de Gastos</h3>
+            </div>
           </div>
-          <div
-            class="flex-1 p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"
-          >
-            <h2 class="text-lg font-semibold text-text mb-1">
-              Tabla de Ingresos
-            </h2>
+
+          <!-- Expenses and Incomes Tables -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-6">
             <div
-              id="table-incomes"
-              style="height: 90%"
-              class="min-h-[250px]"
-            ></div>
+              class="flex-1 p-4 bg-white border border-gray-200 rounded-lg shadow-sm"
+            >
+              <h2 class="text-lg font-semibold text-text mb-1">
+                Tabla de Gastos
+              </h2>
+              <div
+                id="table-expenses"
+                style="height: 90%"
+                class="min-h-[250px]"
+              ></div>
+            </div>
+            <div
+              class="flex-1 p-4 bg-white border border-gray-200 rounded-lg shadow-sm"
+            >
+              <h2 class="text-lg font-semibold text-text mb-1">
+                Tabla de Ingresos
+              </h2>
+              <div
+                id="table-incomes"
+                style="height: 90%"
+                class="min-h-[250px]"
+              ></div>
+            </div>
           </div>
-        </div>
+        </section>
       </main>
     </div>
   </body>

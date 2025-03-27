@@ -1,4 +1,5 @@
 import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
+import { convertDate } from '../utils/convertDate';
 // Register all Community features
 ModuleRegistry.registerModules([AllCommunityModule]);
 
@@ -55,11 +56,13 @@ class Table {
   constructor(containerId, options) {
     this.id = containerId;
     this.options = options;
+    // Api de aggrid para controlar la tabla
+    this.gridApi = null;
   }
 
   show() {
     const myGridElement = document.querySelector(this.id);
-    createGrid(myGridElement, this.options);
+    this.gridApi = createGrid(myGridElement, this.options);
   }
 }
 
@@ -71,6 +74,10 @@ class TransactionsTable extends Table {
   }
 
   setColumns() {
+    if (!this.transactions.length) {
+      this.columns = [];
+      return;
+    }
     this.columns = Object.keys(this.transactions[0])
       .filter((key) => !['id', 'type'].includes(key))
       .map((key) => ({
@@ -78,19 +85,30 @@ class TransactionsTable extends Table {
         headerName: columnsHeaderNames[key],
         cellRenderer: key === 'category' ? CategoryRenderer : undefined,
         cellStyle: key === 'amount' ? { textAlign: 'right' } : undefined,
-        valueFormatter:
-          key === 'amount' ? (params) => (+params.value).toFixed(2) : undefined,
+        valueFormatter: (params) => {
+          if (key === 'amount') {
+            return (+params.value).toFixed(2);
+          } else if (key === 'date') {
+            return convertDate(params.value);
+          }
+          return params.value;
+        },
       }));
+  }
+
+  filterByType(transactions) {
+    this.transactions = transactions.filter(
+      (transaction) => transaction['type'] == this.type
+    );
   }
 
   show() {
     this.setColumns();
+    this.filterByType(this.transactions);
 
     this.options = {
       theme: themeQuartz.withParams({ wrapperBorder: false }),
-      rowData: this.transactions.filter(
-        (transaction) => transaction['type'] == this.type
-      ),
+      rowData: this.transactions,
       columnDefs: this.columns,
       autoSizeStrategy: {
         type: 'fitCellContents',
@@ -98,6 +116,11 @@ class TransactionsTable extends Table {
     };
 
     super.show();
+  }
+
+  update(transactions) {
+    this.filterByType(transactions);
+    this.gridApi.setGridOption('rowData', this.transactions);
   }
 }
 

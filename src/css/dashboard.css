@@ -1,4 +1,111 @@
 html,
 body {
   height: 100%;
+  overflow: hidden;
+}
+
+.barra-lateral {
+  width: 250px;
+  overflow: hidden;
+  padding: 20px 15px;
+  transition: width 0.5s ease;
+}
+
+.mini-barra-lateral {
+  width: 80px;
+}
+
+.barra-lateral span {
+  width: 100px;
+  white-space: nowrap;
+  text-align: left;
+  opacity: 1;
+  transition: opacity 0.5s ease, widht 0.5s ease;
+}
+
+.barra-lateral span.oculto {
+  opacity: 0;
+  width: 0;
+}
+
+/*----> Nombre de la pagina*/
+
+.barra-lateral .nombre-pagina {
+  width: 100%;
+  height: 45px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.barra-lateral .nombre-pagina i {
+  min-width: 50px;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.barra-lateral .nombre-pagina span {
+  margin-left: 5px;
+  font-size: 25px;
+}
+
+/*------------> Menu de navegacion*/
+.barra-lateral .navegacion li {
+  list-style: none;
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.barra-lateral .navegacion a {
+  width: 100%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.barra-lateral .navegacion a:hover {
+  background-color: rgba(63, 60, 211, 0.5);
+  color: white;
+}
+
+.barra-lateral .navegacion i {
+  min-width: 50px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.barra-lateral .linea {
+  margin-top: 30px;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(241, 241, 241);
+}
+
+/*----------> Foto de usuario */
+
+.barra-lateral .usuario {
+  width: 100%;
+  display: flex;
+  margin-top: 30px;
+}
+
+.barra-lateral .usuario .info-usuario {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.barra-lateral .usuario .nombre-email {
+  display: flex;
+  flex-direction: column;
+}
+
+#cards-container {
+  scroll-behavior: smooth;
 }
