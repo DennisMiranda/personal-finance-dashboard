@@ -10,7 +10,8 @@
     <div class="min-h-screen flex">
       <!-- Sidebar -->
       <aside
-        class="barra-lateral flex-none bg-primary text-white p-5 space-y-6"
+        id="sidebar"
+        class="barra-lateral flex-none bg-primary text-white p-5 space-y-6 overflow-hidden"
       >
         <div class="nombre-pagina">
           <i id="wallet" class="bi bi-wallet">
@@ -31,25 +32,25 @@
             <li>
               <a href="./dashboard.html">
                 <i class="fa-solid fa-chart-simple"></i>
-                <span class="text-lg">Dashboard</span>
+                <span class="text-menu text-lg">Dashboard</span>
               </a>
             </li>
             <li>
               <a id="pageTransactions" href="./transactions.html">
                 <i class="fa-solid fa-plus"></i>
-                <span class="text-lg">Transacción</span>
+                <span class="text-menu text-lg">Transacción</span>
               </a>
             </li>
             <li>
               <a href="#">
                 <i class="fa-solid fa-circle-exclamation"></i>
-                <span class="text-lg">Alertas</span>
+                <span class="text-menu text-lg">Alertas</span>
               </a>
             </li>
             <li>
               <a href="#">
                 <i class="fa-solid fa-gear"></i>
-                <span class="text-lg">Configuración</span>
+                <span class="text-menu text-lg">Configuración</span>
               </a>
             </li>
           </ul>
@@ -99,7 +100,29 @@
 
             <!-- Expenses chart -->
             <div class="bg-white p-4 shadow rounded-lg">
-              <h3 class="text-lg font-semibold">Resumen de Gastos</h3>
+              <h3 class="text-lg font-semibold">
+                Resumen de
+                <span>${transactionType}</span>
+              </h3>
+              <div class="gap-1.5">
+                <button
+                  class="btn bg-danger-bg font-semibold text-xs text-danger-text px-1 py-0.5 m-0 rounded-lg hover:bg-red-500 hover:text-white"
+                  id="btn-chart-expenses"
+                >
+                  Gastos
+                </button>
+                <button
+                  class="btn bg-success-bg font-semibold text-xs text-success-text px-1 py-0.5 m-0 rounded-lg hover:bg-green-500 hover:text-white"
+                  id="btn-chart-expenses"
+                >
+                  Ingresos
+                </button>
+              </div>
+
+              <canvas
+                id="cash-flow-pie-chart"
+                class="min-h-[180px] max-h-[300px] w-full"
+              ></canvas>
             </div>
           </div>
 
