@@ -106,28 +106,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //Dando funcionalidad al boton eliminar
     eliminarGasto.addEventListener('click', function () {
-      let filaEliminada = this.closest('tr'); //obtengo la fila en la que apreto el boton eliminar.
-      let celdaGastoEliminado = Number(filaEliminada.cells[3].textContent);
-
-      modalEliminar.classList.remove('hidden');
-
-      btnEliminar.addEventListener('click', function () {
-        let eliminado = true;
-        if (eliminado) {
-          fila.remove();
-          modalEliminar.classList.add('hidden');
-        }
-      });
-
-      btnCancelar.addEventListener('click', function () {
-        let cancelado = true;
-        if (cancelado) modalEliminar.classList.add('hidden');
-      });
-
-      balanceGasto = balanceGasto - celdaGastoEliminado;
-      balance.innerHTML = '';
-      balanceTotal = balanceIngreso - balanceGasto;
-      balance.innerHTML = balanceTotal;
+      let confirmacion = confirm('¿Deseas eliminar esta transacción?');
+      if (confirmacion) {
+        let filaEliminada = this.closest('tr'); //obtengo la fila en la que apreto el boton eliminar.
+        let celdaGastoEliminado = Number(filaEliminada.cells[3].textContent);
+        fila.remove();
+        balanceGasto = balanceGasto - celdaGastoEliminado;
+        balance.innerHTML = '';
+        balanceTotal = balanceIngreso - balanceGasto;
+        balance.innerHTML = balanceTotal;
+      }
     });
     celda_eliminarGasto.appendChild(eliminarGasto);
 
@@ -198,14 +186,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //Dando funcionalidad al boton eliminar
     eliminarIngreso.addEventListener('click', function () {
-      let filaEliminada = this.closest('tr'); //Obtengo la fila en la que se encuentra el boton eliminar.
-      let celdaIngresoEliminada = Number(filaEliminada.cells[3].textContent);
-      fila.remove();
+      let confirmacion = confirm('¿Deseas eliminar esta transacción?');
+      if (confirmacion) {
+        let filaEliminada = this.closest('tr'); //Obtengo la fila en la que se encuentra el boton eliminar.
+        let celdaIngresoEliminada = Number(filaEliminada.cells[3].textContent);
+        fila.remove();
 
-      balanceIngreso = balanceIngreso - celdaIngresoEliminada;
-      balance.innerHTML = '';
-      balanceTotal = balanceIngreso - balanceGasto;
-      balance.innerHTML = balanceTotal;
+        balanceIngreso = balanceIngreso - celdaIngresoEliminada;
+        balance.innerHTML = '';
+        balanceTotal = balanceIngreso - balanceGasto;
+        balance.innerHTML = balanceTotal;
+      }
     });
     celda_eliminarIngreso.appendChild(eliminarIngreso);
 
