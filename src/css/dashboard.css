@@ -1,44 +1,23 @@
 html,
 body {
   height: 100%;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  height: 100vh;
-  width: 100%;
-  background-color: #d5d5f7;
+  overflow: hidden;
 }
 
 .barra-lateral {
   width: 250px;
-  height: 100%;
   overflow: hidden;
   padding: 20px 15px;
-  background-color: #2f2cd8;
   transition: width 0.5s ease;
 }
 
 .mini-barra-lateral {
   width: 80px;
 }
-.barra-lateral .nombre-pagina i {
-  color: white;
-}
-
-.barra-lateral .nombre-pagina span {
-  color: #d5d5f7;
-}
 
 .barra-lateral span {
   width: 100px;
   white-space: nowrap;
-  font-size: 18px;
   text-align: left;
   opacity: 1;
   transition: opacity 0.5s ease, widht 0.5s ease;
@@ -76,7 +55,6 @@ body {
   display: flex;
   margin-top: 20px;
   margin-bottom: 5px;
-  color: aliceblue;
 }
 
 .barra-lateral .navegacion a {
@@ -86,19 +64,17 @@ body {
   align-items: center;
   text-decoration: none;
   border-radius: 10px;
-  background-color: #2f2cd8;
-  color: #d5d5f7;
 }
 
 .barra-lateral .navegacion a:hover {
-  background-color: rgb(238, 238, 238);
-  color: black;
+  background-color: rgba(63, 60, 211, 0.5);
+  color: white;
 }
 
 .barra-lateral .navegacion i {
   min-width: 50px;
   font-size: 20px;
-  align-content: center;
+  text-align: center;
 }
 
 .barra-lateral .linea {
@@ -116,35 +92,18 @@ body {
   margin-top: 30px;
 }
 
-.barra-lateral .usuario img {
-  width: 50px;
-  height: 50px;
-  border: radius 10px;
-}
-
 .barra-lateral .usuario .info-usuario {
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #d5d5f7;
   overflow: hidden;
 }
 
 .barra-lateral .usuario .nombre-email {
   display: flex;
   flex-direction: column;
-  margin-left: 5px;
-}
-
-.barra-lateral .usuario .nombre {
-  font-size: 15px;
-  font-weight: 600;
-}
-
-.barra-lateral .usuario .email {
-  font-size: 13px;
 }
 
 #cards-container {
