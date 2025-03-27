@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const formMain = document.getElementById('formMain');
   const nav_tab = document.getElementById('nav_tab');
   const balance = document.getElementById('balance');
+  const modalEliminar = document.getElementById('modalEliminar');
+  const btnEliminar = document.getElementById('btnEliminar');
+  const btnCancelar = document.getElementById('btnCancelar');
 
   tabGastos.addEventListener('click', function () {
     nav_tab.classList.remove('bg-[#00a254]');
@@ -105,7 +108,22 @@ document.addEventListener('DOMContentLoaded', function () {
     eliminarGasto.addEventListener('click', function () {
       let filaEliminada = this.closest('tr'); //obtengo la fila en la que apreto el boton eliminar.
       let celdaGastoEliminado = Number(filaEliminada.cells[3].textContent);
-      fila.remove();
+
+      modalEliminar.classList.remove('hidden');
+
+      btnEliminar.addEventListener('click', function () {
+        let eliminado = true;
+        if (eliminado) {
+          fila.remove();
+          modalEliminar.classList.add('hidden');
+        }
+      });
+
+      btnCancelar.addEventListener('click', function () {
+        let cancelado = true;
+        if (cancelado) modalEliminar.classList.add('hidden');
+      });
+
       balanceGasto = balanceGasto - celdaGastoEliminado;
       balance.innerHTML = '';
       balanceTotal = balanceIngreso - balanceGasto;
@@ -180,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //Dando funcionalidad al boton eliminar
     eliminarIngreso.addEventListener('click', function () {
-      let filaEliminada = this.closest('tr'); //Ontengo la fila en la que se encuentra el boton eliminar.
+      let filaEliminada = this.closest('tr'); //Obtengo la fila en la que se encuentra el boton eliminar.
       let celdaIngresoEliminada = Number(filaEliminada.cells[3].textContent);
       fila.remove();
 

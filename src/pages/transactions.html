@@ -52,16 +52,13 @@
               <div class="mb-2">
                 <label for="type" class="block font-bold">Categoria</label>
                 <select id="typeGasto" class="w-full p-2 border rounded-md">
-                  <option>Vivienda</option>
                   <option>Alimentación</option>
-                  <option>Transporte</option>
-                  <option>Salud</option>
                   <option>Educación</option>
-                  <option>Finanzas / Deudas</option>
                   <option>Entretenimiento</option>
-                  <option>Compras personales</option>
-                  <option>Suscripciones y membresías</option>
-                  <option>Familia y regalos</option>
+                  <option>Salud</option>
+                  <option>Transporte</option>
+                  <option>Vivienda</option>
+                  <option>Otros</option>
                 </select>
               </div>
 
@@ -109,11 +106,11 @@
               <div class="mb-2">
                 <label for="type" class="block font-bold">Categoria</label>
                 <select id="typeIngreso" class="w-full p-2 border rounded-md">
-                  <option>Sueldo</option>
                   <option>Bonos</option>
-                  <option>Ventas</option>
                   <option>Freelance</option>
-                  <option>Donaciones / Premios</option>
+                  <option>Sueldo</option>
+                  <option>Ventas/option></option>
+                  <option>Otros</option>
                 </select>
               </div>
 
@@ -150,12 +147,20 @@
         </div>
       </section>
 
-      <h2 class="text-xl font-semibold text-gray-700">
-        Balance Total:
-        <span class="text-green-500">
-          S/.
-          <span id="balance">0</span>
-        </span>
+      <h2 class="text-xl font-semibold text-gray-700 flex justify-between">
+        <div class="flex gap-2">
+          <span>Balance Total:</span>
+          <div class="flex text-green-500">
+            <h3>S/.</h3>
+            <h3 id="balance">0</h3>
+          </div>
+        </div>
+        <a
+          class="bg-[#2f2cd8] text-white py-1 px-2 rounded-md"
+          href="./dashboard.html"
+        >
+          Ir al dashboard
+        </a>
       </h2>
       <section class="flex gap-3">
         <table
@@ -175,5 +180,30 @@
         </table>
       </section>
     </main>
+    <!-- modal para eliminar ingreso o gasto -->
+    <div
+      id="modalEliminar"
+      class="fixed flex inset-0 items-center justify-center hidden"
+    >
+      <div
+        class="bg-black z-10 text-white text-lg font-semibold p-3 rounded-3xl shadow-2xl"
+      >
+        <h2 class="mx-3 my-2 text-[20px]">¿Desea eliminar esta transacción?</h2>
+        <div class="flex items-center justify-between mx-4 mb-2">
+          <button
+            class="px-3 py-1 mt-2 rounded-full bg-red-600 shadow-md cursor-pointer"
+            id="btnEliminar"
+          >
+            Eliminar
+          </button>
+          <button
+            class="px-3 py-1 mt-2 rounded-full bg-blue-600 shadow-md cursor-pointer"
+            id="btnCancelar"
+          >
+            Cancelar
+          </button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
