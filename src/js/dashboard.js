@@ -9,6 +9,8 @@ import {
 } from './utils/cardAmounts.js';
 import { loadTransactions } from './utils/localstorage';
 import { sidebar } from './components/sidebar.js';
+import { PieChart } from './components/pieChart.js';
+import { SidebarToggle } from './components/sidebar.js';
 
 class Dashboard {
   constructor() {
@@ -18,8 +20,12 @@ class Dashboard {
 
     // Definir propiedades para manejar los componentes
     this.cards = [];
+
     this.barChart = null;
     this.barChartOptions = {};
+    this.pieChart = null;
+    this.pieChartOptions = {};
+
     this.tableExpenses = null;
     this.tableIncomes = null;
   }
@@ -119,7 +125,7 @@ class Dashboard {
     this.tableIncomes.show();
   }
 
-  createCharts(transactions, currentYear) {
+  createCharts(transactions, month, year) {
     // Inicializar las opciones del gráfico de barras
     this.barChartOptions = {
       labels: Array.from({ length: 12 }, (_, i) =>
@@ -146,8 +152,11 @@ class Dashboard {
       transactions,
       this.barChartOptions.labels,
       this.barChartOptions.datasetConfig,
-      currentYear
+      year
     );
+
+    this.pieChart = new PieChart('cash-flow-pie-chart');
+    this.pieChart.renderData(this.balanceByYearMonth, month, year);
   }
 
   createComponents(month, year) {
@@ -155,7 +164,7 @@ class Dashboard {
     const monthlyTransactions = this.filterByDate(year, month);
 
     this.createCards(month, year);
-    this.createCharts(yearlyTransactions, year);
+    this.createCharts(yearlyTransactions, month, year);
     this.createTables(monthlyTransactions);
   }
 
@@ -182,6 +191,8 @@ class Dashboard {
       year
     );
 
+    this.pieChart.renderData(this.balanceByYearMonth, month, year);
+
     // Actualizar tablas
     this.tableExpenses.update(monthlyTransactions);
     this.tableIncomes.update(monthlyTransactions);
@@ -194,6 +205,7 @@ class Dashboard {
     transactionFilter.initDateSelectors();
 
     this.balanceByYearMonth = getBalanceByYearMonth(this.transactions);
+    console.log(this.balanceByYearMonth);
 
     // Escuchar cambios en los filtros
     document.addEventListener('filterChanged', (event) => {
