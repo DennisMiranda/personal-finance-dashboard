@@ -95,16 +95,17 @@ class Dashboard {
     ];
 
     cards.forEach((card) => {
-      this.cards.push(
-        new Card(
-          cardContainerId,
-          card.id,
-          card.icons,
-          card.title,
-          card.amount,
-          card.indicator
-        )
+      const newCard = new Card(
+        cardContainerId,
+        card.id,
+        card.icons,
+        card.title,
+        card.amount,
+        card.indicator
       );
+
+      newCard.init();
+      this.cards.push(newCard);
     });
   }
 
