@@ -9,11 +9,16 @@ class Card {
       'class',
       'rounded-xl border-1 border-[#a6a6a6] p-2 shadow-md  w-full flex-shrink-0 snap-center'
     );
+
+    const iconUp = 'fa-solid fa-arrow-up text-green-500';
+    const iconDown = 'fa-solid fa-arrow-down text-red-500';
+
     const indicatorElement =
       indicator !== null
         ? `<div class="container w-19 h-8 pt-0.5 flex justify-center rounded-2xl bg-success-bg font-bold text-success-text">
-            <span><span id="${id}-indicator">${indicator}</span>%</span>
-          </div>`
+        <i class="${iconUp}"></i>
+        <span><span id="${id}-indicator">${indicator}</span>%</span>
+        </div>`
         : '';
 
     div.innerHTML = `<div class="flex flex-1 justify-between ">
