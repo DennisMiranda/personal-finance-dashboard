@@ -1,7 +1,8 @@
-import { TransactionProcessor } from '../components/barChart';
-
 // =====================================
 // Funciones auxiliares para cálculos
+
+import { TransactionProcessor } from './transactionProcesor';
+
 // =====================================
 export function calculateTotalBalance(transactions, previousBalance) {
   return calculateSavings(transactions) + previousBalance;
@@ -31,13 +32,26 @@ export function getBalanceByYearMonth(transactions) {
     const amount = +transaction['amount'];
 
     if (!accumulator[yearMonth]) {
-      accumulator[yearMonth] = { incomes: 0, expenses: 0 };
+      accumulator[yearMonth] = {
+        incomes: 0,
+        expenses: 0,
+        categories: { incomes: {}, expenses: {} },
+      };
     }
+
+    const { categories } = accumulator[yearMonth];
 
     if (transaction.type === 'Ingreso') {
       accumulator[yearMonth].incomes += amount;
+
+      if (!categories.incomes[transaction.category])
+        categories.incomes[transaction.category] = 0;
+
+      categories.incomes[transaction.category] += amount;
     } else {
       accumulator[yearMonth].expenses += amount;
+      categories.expenses[transaction.category] ??= 0;
+      categories.expenses[transaction.category] += amount;
     }
 
     return accumulator;
@@ -49,6 +63,7 @@ export function getBalanceByYearMonth(transactions) {
       key,
       incomes: balanceObj[key].incomes,
       expenses: balanceObj[key].expenses,
+      categories: balanceObj[key].categories,
     }));
 }
 
