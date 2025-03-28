@@ -15,6 +15,12 @@ export function saveTransaction(transaction) {
   localStorage.setItem(userData.email, JSON.stringify(userData));
 }
 
+export function saveTransactions(transactions) {
+  const userData = getUserData();
+  userData.transactions = transactions;
+  localStorage.setItem(userData.email, JSON.stringify(userData));
+}
+
 function logOut() {
   window.location.replace('/pages/login.html');
 }

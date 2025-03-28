@@ -112,14 +112,14 @@ class Dashboard {
   createTables(transactions) {
     // Renderizar las tablas con los datos filtrados
     this.tableExpenses = new TransactionsTable(
-      '#table-expenses',
+      'table-expenses',
       'Gasto',
       transactions
     );
     this.tableExpenses.show();
 
     this.tableIncomes = new TransactionsTable(
-      '#table-incomes',
+      'table-incomes',
       'Ingreso',
       transactions
     );
