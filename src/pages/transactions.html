@@ -10,34 +10,42 @@
       <h1
         class="text-3xl font-bold text-gray-800 text-center my-6 bg-[#2f2cd8] text-white py-3 rounded-2xl"
       >
-        Formulario de Gastos e Ingresos
+        Gastos e Ingresos
       </h1>
-
-      <section class="transactionsForm">
-        <div class="flex items-center gap-15 mb-10">
-          <img
-            src="../assets/img/image.png"
-            alt=""
-            class="w-[40%] h-[40%] hidden md:block"
-          />
-          <div class="w-full shadow-2xl rounded-md" id="formMain">
-            <nav class="flex bg-[#ff2326] rounded-t-md" id="nav_tab">
+      <div class="w-full">
+        <button
+          class="flex text-center m-auto mb-4 bg-green-700 text-white px-5 py-4 text-3xl font-bold rounded-full shadow-lg cursor-pointer hover:bg-green-600"
+          id="btnTransaction"
+        >
+          Agregar transacción
+        </button>
+      </div>
+      <div
+        id="fondoOscuro"
+        class="fixed inset-0 bg-black opacity-70 hidden"
+      ></div>
+      <section class="hidden" id="modalFormTransaction">
+        <div
+          class="flex justify-center items-center inset-0 gap-15 mb-10 fixed"
+        >
+          <div class="w-[500px] rounded-md m-auto" id="formMain">
+            <nav class="flex bg-[#ff2326] rounded-t-md mx-3" id="nav_tab">
               <h2
                 id="tabGastos"
-                class="px-5 py-3 w-1/2 text-center cursor-pointer font-bold text-2xl rounded-br-lg"
+                class="px-5 py-3 w-1/2 text-center cursor-pointer font-bold text-2xl rounded-br-lg rounded-tl-lg"
               >
                 Gastos
               </h2>
               <h2
                 id="tabIngresos"
-                class="px-5 py-3 w-1/2 text-center cursor-pointer bg-white rounded-bl-lg shadow-2xs text-2xl font-bold"
+                class="px-5 py-3 w-1/2 text-center cursor-pointer bg-white rounded-bl-lg rounded-tr-lg shadow-2xs text-2xl font-bold"
               >
                 Ingresos
               </h2>
             </nav>
             <form
               id="formGastos"
-              class="p-4 border-2 border-[#ff2326] rounded-b-lg"
+              class="p-4 border-2 border-[#ff2326] rounded-b-lg bg-white shadow-lg mx-3"
             >
               <div class="mb-2">
                 <label for="date" class="block font-bold">Fecha</label>
@@ -53,11 +61,12 @@
                 <label for="type" class="block font-bold">Categoria</label>
                 <select id="typeGasto" class="w-full p-2 border rounded-md">
                   <option>Alimentación</option>
+                  <option>Servicios básicos</option>
+                  <option>Transporte</option>
+                  <option>Salud e Higiene</option>
                   <option>Educación</option>
                   <option>Entretenimiento</option>
-                  <option>Salud</option>
-                  <option>Transporte</option>
-                  <option>Vivienda</option>
+                  <option>Moda y Belleza</option>
                   <option>Otros</option>
                 </select>
               </div>
@@ -85,14 +94,17 @@
 
               <button
                 type="submit"
-                class="bg-[#ff2326] text-white p-2 rounded-md w-full mt-2 border font-bold"
+                class="bg-red-600 text-white p-2 rounded-md w-full mt-2 border font-bold cursor-pointer hover:bg-[#ff2326]"
                 id="btnGasto"
               >
                 Agregar Gasto
               </button>
             </form>
 
-            <form id="formIngresos" class="p-4 hidden border-2 rounded-b-lg">
+            <form
+              id="formIngresos"
+              class="p-4 hidden border-2 rounded-b-lg bg-white shadow-lg mx-3"
+            >
               <div class="mb-2">
                 <label for="date" class="block font-bold">Fecha</label>
                 <input
@@ -106,10 +118,13 @@
               <div class="mb-2">
                 <label for="type" class="block font-bold">Categoria</label>
                 <select id="typeIngreso" class="w-full p-2 border rounded-md">
-                  <option>Bonos</option>
-                  <option>Freelance</option>
-                  <option>Sueldo</option>
-                  <option>Ventas/option></option>
+                  <option>Salario Principal</option>
+                  <option>Bonos y pensiones</option>
+                  <option>Rentas</option>
+                  <option>Intereses</option>
+                  <option>Dividendos</option>
+                  <option>Negocios Independ.</option>
+                  <option>Regalos y donaciones</option>
                   <option>Otros</option>
                 </select>
               </div>
@@ -137,12 +152,19 @@
 
               <button
                 type="submit"
-                class="bg-[#00a254] text-white p-2 rounded-md w-full mt-2 font-bold"
+                class="bg-[#00a254] text-white p-2 rounded-md w-full mt-2 font-bold cursor-pointer hover:bg-green-500"
                 id="btnIngreso"
               >
                 Agregar Ingreso
               </button>
             </form>
+            <div class="flex w-full">
+              <button
+                class="btnCerrarFormulario bg-[#2f2cd8] text-white w-full p-2 rounded-md border-0 font-bold my-3 mx-4 cursor-pointer m-auto shadow-[0px_1px_3px_0px_white] hover:bg-blue-700"
+              >
+                Cerrar
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -156,7 +178,7 @@
           </div>
         </div>
         <a
-          class="bg-[#2f2cd8] text-white py-1 px-2 rounded-md"
+          class="bg-[#2f2cd8] text-white py-1 px-2 rounded-md hover:bg-blue-600"
           href="./dashboard.html"
         >
           Ir al dashboard
