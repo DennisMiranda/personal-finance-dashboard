@@ -7,7 +7,7 @@ import {
   getAmountsAndIndicators,
   getBalanceByYearMonth,
 } from './utils/cardAmounts.js';
-import { loadTransactions } from './utils/localstorage';
+import { loadTransactions, getUserData } from './utils/localstorage';
 import { sidebar } from './components/sidebar.js';
 import { PieChart } from './components/pieChart.js';
 import { SidebarToggle } from './components/sidebar.js';
@@ -201,12 +201,15 @@ class Dashboard {
 
   // Iniciar dashboard y escuchar eventos de filtro
   init() {
+    const { username, email } = getUserData();
+    document.getElementById('username').innerText = username;
+    document.getElementById('email').innerText = email;
+
     // Inicializar el filtro de fechas
     const transactionFilter = new TransactionFilter();
     transactionFilter.initDateSelectors();
 
     this.balanceByYearMonth = getBalanceByYearMonth(this.transactions);
-    console.log(this.balanceByYearMonth);
 
     // Escuchar cambios en los filtros
     document.addEventListener('filterChanged', (event) => {

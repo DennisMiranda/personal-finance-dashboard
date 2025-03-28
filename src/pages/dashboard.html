@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="../css/dashboard.css" />
   </head>
   <body>
-    <div class="min-h-screen flex">
+    <div class="h-full flex flex-col md:flex-row">
       <!-- Sidebar -->
       <aside
         id="sidebar"
-        class="barra-lateral flex-none bg-primary text-white p-5 space-y-6 overflow-hidden"
+        class="barra-lateral flex-none bg-primary text-white p-5 space-y-6 overflow-hidden hidden md:block"
       >
         <div class="nombre-pagina">
           <i id="wallet" class="bi bi-wallet">
@@ -24,6 +24,15 @@
           <span class="font-bold text-lg text-white" id="titulo-pagina">
             Yapay Wallet
           </span>
+        </div>
+        <div class="flex text-secondary mt-6">
+          <div class="w-12 flex justify-center items-center">
+            <i class="text-lg fa-solid fa-user"></i>
+          </div>
+          <div class="flex flex-col flex-1">
+            <span id="username" class="nombre font-semibold"></span>
+            <span id="email" class="email text-sm"></span>
+          </div>
         </div>
         <div class="linea"></div>
 
@@ -56,51 +65,57 @@
           </ul>
         </nav>
         <div class="linea"></div>
-        <div class="usuario text-secondary">
-          <span class="fa-solid fa-user"></span>
-          <div class="info-usuario">
-            <div class="nombre-email text-secondary">
-              <span class="nombre font-semibold">Usuario de Prueba</span>
-              <span class="email text-sm">emaildeprueba@gmail.com</span>
-            </div>
-          </div>
+        <div class="flex text-secondary mt-6 text-lg">
+          <a href="./login.html" class="w-full text-secondary hover:text-white">
+            <i
+              class="h-11 w-12.5 text-center fa-solid fa-right-from-bracket"
+            ></i>
+            <span class="text-menu text-md">Salir</span>
+          </a>
         </div>
       </aside>
 
       <!--  Main  Content-->
-      <main class="h-screen overflow-y-hidden flex-1 p-5">
+      <main class="overflow-y-hidden flex flex-col flex-1">
         <!-- Header -->
-        <div class="flex justify-between items-center">
+        <div class="flex justify-between items-center pb-0 p-5">
           <h2 class="text-3xl font-bold text-text">Finanzas Personales</h2>
-          <div class="flex gap-2">
-            <select id="select-month" class="border p-2 rounded-lg"></select>
-            <select id="select-year" class="border p-2 rounded-lg"></select>
+          <div class="flex gap-2 text-text font-semibold">
+            <select
+              id="select-month"
+              class="border border-gray-300 p-2 rounded-lg"
+            ></select>
+            <select
+              id="select-year"
+              class="border border-gray-300 p-2 rounded-lg"
+            ></select>
           </div>
         </div>
 
-        <section class="h-95/100 overflow-y-auto">
+        <section class="flex-1 overflow-auto pt-0 p-5">
           <!-- Cards -->
-
           <div
             id="cards-container"
-            class="flex gap-4 overflow-x-auto snap-x snap-mandatory px-4 mt-6 sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 md:overflow-hidden"
+            class="flex gap-4 overflow-x-auto snap-x snap-mandatory -m-2 p-2 mt-6 sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 md:overflow-hidden"
           ></div>
 
           <!-- Charts -->
-
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
             <!-- Chart Cash Flow -->
-            <div class="md:col-span-2 bg-white p-4 shadow rounded-lg">
-              <h3 class="text-lg font-semibold">Flujo de Efectivo</h3>
-              <canvas
-                id="cash-flow-chart"
-                class="min-h-[180px] max-h-[300px] w-full"
-              ></canvas>
+            <div
+              class="md:col-span-2 bg-white p-4 border border-gray-200 shadow-[0px_6px_15px_rgba(47,44,216,0.25)] rounded-lg"
+            >
+              <h3 class="text-lg font-bold text-text">Flujo de Efectivo</h3>
+              <canvas id="cash-flow-chart" class=""></canvas>
             </div>
 
             <!-- Expenses chart -->
-            <div class="bg-white p-4 shadow rounded-lg">
-              <h3 class="text-lg font-semibold">Resumen de Transacciones</h3>
+            <div
+              class="bg-white p-4 rounded-lg border border-gray-200 shadow-[0px_6px_15px_rgba(47,44,216,0.25)]"
+            >
+              <h3 class="text-lg font-bold text-text">
+                Resumen de Transacciones
+              </h3>
               <div class="gap-1.5">
                 <button
                   class="btn bg-danger-bg font-semibold text-xs text-danger-text px-1 py-0.5 m-0 rounded-lg hover:bg-red-500 hover:text-white"
@@ -126,11 +141,9 @@
           <!-- Expenses and Incomes Tables -->
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-6">
             <div
-              class="flex-1 p-4 bg-white border border-gray-200 rounded-lg shadow-sm"
+              class="flex-1 p-4 bg-white rounded-lg border border-gray-200 shadow-[0px_6px_15px_rgba(47,44,216,0.25)]"
             >
-              <h2 class="text-lg font-semibold text-text mb-1">
-                Tabla de Gastos
-              </h2>
+              <h2 class="text-lg font-bold text-text mb-1">Tabla de Gastos</h2>
               <div
                 id="table-expenses"
                 style="height: 90%"
@@ -138,9 +151,9 @@
               ></div>
             </div>
             <div
-              class="flex-1 p-4 bg-white border border-gray-200 rounded-lg shadow-sm"
+              class="flex-1 p-4 bg-white border border-gray-200 rounded-lg shadow-[0px_6px_15px_rgba(47,44,216,0.25)]"
             >
-              <h2 class="text-lg font-semibold text-text mb-1">
+              <h2 class="text-lg font-bold text-text mb-1">
                 Tabla de Ingresos
               </h2>
               <div
@@ -152,6 +165,21 @@
           </div>
         </section>
       </main>
+      <footer class="w-full bg-primary md:hidden">
+        <nav class="flex justify-around items-center py-3 text-white text-xl">
+          <a href="dashboard.html" class="fa-solid fa-chart-simple"></a>
+          <a href="transactions.html" class="fa-solid fa-plus"></a>
+          <i>
+            <img
+              src="../assets/img/Logo-yapac-alpha-v2.png"
+              alt="Logo-yapay"
+              class="h-7 w-auto mr-3"
+            />
+          </i>
+          <a href="dashboard.html" class="fa-solid fa-circle-exclamation"></a>
+          <a href="dashboard.html" class="fa-solid fa-gear"></a>
+        </nav>
+      </footer>
     </div>
   </body>
 </html>

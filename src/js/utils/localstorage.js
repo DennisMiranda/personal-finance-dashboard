@@ -19,7 +19,7 @@ function logOut() {
   window.location.replace('/pages/login.html');
 }
 
-function getUserData() {
+export function getUserData() {
   const userEmail = sessionStorage.getItem('loggedUser');
   if (!userEmail) {
     logOut();
