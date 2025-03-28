@@ -12,14 +12,17 @@ document.addEventListener('DOMContentLoaded', function () {
   const balance = document.getElementById('balance');
   const btnTransaction = document.getElementById('btnTransaction');
   const modalFormTransaction = document.getElementById('modalFormTransaction');
+  const fondoOscuro = document.getElementById('fondoOscuro');
   const btnCerrarFormulario = document.querySelectorAll('.btnCerrarFormulario');
 
   btnTransaction.addEventListener('click', function () {
     modalFormTransaction.classList.remove('hidden');
+    fondoOscuro.classList.remove('hidden');
   });
   btnCerrarFormulario.forEach((btnCerrar) => {
     btnCerrar.addEventListener('click', function () {
       modalFormTransaction.classList.add('hidden');
+      fondoOscuro.classList.add('hidden');
     });
   });
 
