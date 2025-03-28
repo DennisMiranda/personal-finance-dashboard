@@ -15,7 +15,7 @@ class Card {
     const div = document.createElement('div');
     div.setAttribute(
       'class',
-      'rounded-xl border-1 border-[#a6a6a6] p-2 shadow-md  w-full flex-shrink-0 snap-center'
+      'rounded-xl p-2 border border-gray-200 shadow-[0px_4px_10px_rgba(47,44,216,0.25)]  w-full flex-shrink-0 snap-center'
     );
 
     const indicatorElement = this.createIndicatorElement(this.indicator);
@@ -24,7 +24,7 @@ class Card {
             <span class="border-1 rounded-full text-xl text-center text-border w-8 h-8">
               <i class="${this.icons[0]}"></i>
             </span>
-            <button class="text-border cursor-pointer ${this.icons[1]}">
+            <button class="text-border ${this.icons[1]}">
             </button>
           </div>
           <h2 class="text-text-secondary font-semibold text-lg">${this.title}</h2>

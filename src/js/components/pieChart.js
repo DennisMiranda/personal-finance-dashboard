@@ -49,8 +49,6 @@ export class PieChart {
   // Cargar y procesar datos dinámicamente
   renderData(transactions, month, selectedYear) {
     try {
-      console.log(transactions, this.type);
-
       const processor = new TransactionProcessor(transactions);
       const { incomes, expenses } = processor.getCategoriesLabelsAndValues(
         month,
