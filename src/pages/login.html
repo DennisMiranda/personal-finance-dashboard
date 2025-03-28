@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Nómada Wallet</title>
+    <link rel="stylesheet" href="../css/login.css" />
+  </head>
+  <body>
+    <header class="flex items-center m-5 gap-2 absolute">
+      <img src="../assets/img/Logo-yapay-alpha-v2.png" class="w-10" alt="" />
+      <p class="font-bold">Yapay Wallet</p>
+    </header>
+    <div class="flex">
+      <section
+        class="hidden bg-[#d5d5f7] h-screen lg:block content-center justify-items-center lg:w-1/2"
+      >
+        <div class="my-10 mx-[15%]">
+          <h1 class="py-8 text-4xl text-center font-bold">
+            Simplicidad y control
+            <br />
+            para tu economía.
+          </h1>
+          <img class="w-100" src="../assets/img/Monitor-dashBoard.png" alt="" />
+          <p class="py-4 text-center font-bold text-2xl">
+            Tus sueños valen más que un
+            <br />
+            gasto impulsivo. ¡Planifica,
+            <br />
+            ahorra y hazlos realidad!
+          </p>
+        </div>
+      </section>
+
+      <section
+        class="grid content-center justify-items-center bg-gray-200 h-screen w-[100%] lg:w-1/2 py-20"
+      >
+        <div class="w-80">
+          <h2 class="text-center font-extrabold text-5xl mb-7 text-[#2f2cd8]">
+            Iniciar Sesión
+          </h2>
+          <form class="flex flex-col" action="login" id="loginForm">
+            <label class="font-semibold" for="email">Correo electrónico</label>
+            <input
+              class="border-1 rounded-md h-10 px-2"
+              type="email"
+              id="email"
+              name="email"
+              required
+            />
+
+            <label class="mt-3 font-semibold">Contraseña</label>
+            <div class="relative flex items-center justify-end">
+              <input
+                class="border-1 rounded-md h-10 w-full px-2"
+                type="password"
+                id="password"
+                name="password"
+                required
+              />
+              <img
+                class="w-6 absolute me-2 cursor-pointer opacity-20"
+                src="../assets/img/ojo.png"
+                alt=""
+                id="eye"
+              />
+            </div>
+
+            <label class="my-3 font-semibold" for="remember">
+              <input type="checkbox" name="remember" id="rememberPass" />
+              Recordar Contraseña
+            </label>
+
+            <button
+              class="rounded-md py-2 mt-2 font-bold bg-[#2f2cd8] hover:bg-blue-900 text-gray-50"
+              type="submit"
+              id="btnLogin"
+            >
+              Iniciar sesión
+            </button>
+
+            <div class="flex justify-center mt-4 gap-2">
+              <h4>¿No estás regitrado?</h4>
+              <a class="font-bold" href="register.html">Regístrate</a>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

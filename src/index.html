@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+  <!-- Información para SEO y accesibilidad -->
+  <title>Yapay Wallet | Controla tu dinero</title>
+  <meta name="description" content="Controla tus gastos y ahorra con Yapay Wallet" />
+  <meta name="keywords" content="Yapay Wallet, control de gastos, ahorro" />
+  <meta name="author" content="Yapay Wallet" />
+  <meta name="robots" content="index, follow" />
+  <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="../css/login.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
+
+<body>
+  <header>
+    <nav class="fixed top-0 left-0 right-0 bg-blue-800 z-50">
+      <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div class="relative flex h-16 items-center justify-between flex-wrap">
+          <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            <!-- Botón para menú hamburguesa-->
+            <button id="menu-toggle" type="button"
+              class="relative inline-flex items-center justify-center rounded-md p-2 text-white hover:text-white focus:ring-2 focus:ring-white focus:outline-none focus:ring-inset z-20" 
+              aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menú de navegación">
+
+              <!-- Icono de menú hamburguesa -->
+              <svg id="menu-open" class="block size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+
+              <!-- Icono de cerrar "X"-->
+              <svg id="menu-closed" class="hidden size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Logo y navegación -->
+          <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+            <a href="./index.html" class="flex shrink-0 items-center space-x-2" aria-label="Página de inicio">
+              <img class="h-10 w-auto mr-3" src="./assets/img/logo.png" alt="Logo de Yapay Wallet">
+              <span class=" text-xl font-bold text-white">Yapay Wallet</span>
+            </a>
+
+            <!-- Menú de navegación -->
+            <div class="hidden sm:flex sm:justify-center sm:w-full">
+              <ul class="flex space-x-4 items-center p-0 m-0 list-none">
+                <li><a href="#home"
+                    class="relative inline-block px-3 py-2 text-base font-medium text-white transition after:block after:h-0.5 after:w-full after:bg-white after:scale-x-0 after:transition-transform after:duration-300 after:origin-left hover:after:scale-x-100"
+                    aria-current="page">Inicio</a></li>
+                <li><a href="#features"
+                    class="relative inline-block px-3 py-2 text-base font-medium text-white transition after:block after:h-0.5 after:w-full after:bg-white after:scale-x-0 after:transition-transform after:duration-300 after:origin-left hover:after:scale-x-100">Características</a>
+                </li>
+                <li><a href="#benefits"
+                    class="relative inline-block px-3 py-2 text-base font-medium text-white transition after:block after:h-0.5 after:w-full after:bg-white after:scale-x-0 after:transition-transform after:duration-300 after:origin-left hover:after:scale-x-100">Beneficios</a>
+                </li>
+                <li><a href="#testimonials"
+                    class="relative inline-block px-3 py-2 text-base font-medium text-white transition after:block after:h-0.5 after:w-full after:bg-white after:scale-x-0 after:transition-transform after:duration-300 after:origin-left hover:after:scale-x-100">Testimonios
+                  </a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="hidden md:flex items-center ">
+            <a href="./pages/login.html"
+              class=" text-blue-800 px-5 py-2 bg-white rounded-md text-base font-medium border border-blue-800 shadow-sm hover:bg-blue-100 hover:shadow-md transition-all duration-300">
+              Iniciar sesión
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menú móvil -->
+      <div id="mobile-menu" class="hidden sm:hidden absolute left-0 top-16 w-full bg-blue-800 z-50 transition-all duration-300 ease-in-out">
+        <ul class="space-y-2 px-4 pt-4 pb-6 rounded-lg shadow-md">
+          <li><a href="#home"
+              class="block text-center rounded-lg px-4 py-3 text-base font-medium text-white border-b border-white/10 hover:bg-white/10 transition-all duration-300"
+              aria-current="page">Inicio</a></li>
+          <li><a href="#features"
+              class="block text-center rounded-lg px-4 py-3 text-base font-medium text-white border-b border-white/10 hover:bg-white/10 transition-all duration-300">Características</a>
+          </li>
+          <li><a href="#benefits"
+              class="block text-center rounded-lg px-4 py-3 text-base font-medium text-white border-b border-white/10 hover:bg-white/10 transition-all duration-300">Beneficios</a>
+          </li>
+          <li><a href="#testimonials"
+              class="block text-center rounded-lg px-4 py-3 text-base font-medium text-white border-b border-white/10 hover:bg-white/10 transition-all duration-300">Testimonios</a>
+          </li>
+          <li><a href="./pages/login.html"
+              class="block text-center rounded-lg px-6 py-3 mt-4 text-blue-800 bg-white text-base font-medium hover:bg-blue-100 hover:shadow-md transition-all duration-300">Iniciar
+              sesión</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="pt-16">
+    <!-- Sección Hero -->
+    <section id="home"
+      class="relative w-full h-screen bg-cover bg-center flex items-center justify-center text-white px-6 md:px-12 bg-black/40 bg-blend-darken"
+      style="background-image: url('./assets/img/hero.jpg');">
+      <div class="max-w-4xl text-center">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight drop-shadow-lg">Gestiona tu dinero de forma
+          sencilla y efectiva</h1>
+        <p class="mt-4 text-base sm:text-lg md:text-xl font-light drop-shadow-md max-w-3xl mx-auto">
+          Descubre herramientas avanzadas para optimizar tus finanzas personales y alcanzar tus metas sin
+          complicaciones.
+        </p>
+        <div class="mt-6 flex justify-center gap-4">
+          <a href="./pages/register.html" class="bg-blue-700 text-white px-8 py-4 text-lg sm:text-xl font-semibold rounded-lg 
+                    shadow-lg hover:bg-blue-800 hover:scale-105 hover:shadow-xl transition-all duration-300">Empieza
+            ahora</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Caracteristicas -->
+    <section id="features" class="py-16 px-8 text-center max-w-7xl mx-auto">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-800">Funciones que simplifican tu gestión
+        financiera</h2>
+      <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 bg-white rounded-lg shadow-lg transition transform hover:scale-105 duration-300">
+          <i class="material-icons text-blue-700 text-6xl">schedule</i>
+          <h3 class="font-bold text-xl mt-2"> Ahorra tiempo </h3>
+          <p class="mt-2 text-base sm:text-lg text-gray-600">Automatiza tus finanzas y enfócate en lo importante.</p>
+        </div>
+        <div class="p-6 bg-white rounded-lg shadow-lg transition transform hover:scale-105 duration-300">
+          <i class="material-icons text-blue-700 text-6xl">insights</i>
+          <h3 class="font-bold text-xl mt-2"> Control total </h3>
+          <p class="mt-2 text-base sm:text-lg text-gray-600">Monitorea ingresos, gastos y ahorros con facilidad.</p>
+        </div>
+        <div class="p-6 bg-white rounded-lg shadow-lg transition transform hover:scale-105 duration-300">
+          <i class="material-icons text-blue-700 text-6xl">bar_chart</i>
+          <h3 class="font-bold text-xl mt-2"> Reportes detallados </h3>
+          <p class="mt-2 text-base sm:text-lg text-gray-600">Visualiza análisis en tiempo real y mejora tu gestión
+            financiera.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Beneficios -->
+    <section id="benefits" class="py-16 px-8 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+      <div class="max-w-lg">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-800 leading-tight">
+          Gestiona tu dinero sin complicaciones
+        </h2>
+        <p class="mt-4 text-base sm:text-lg text-gray-600">
+          Organiza tus ingresos y egresos con herramientas intuitivas que te permitirán visualizar y optimizar tu
+          economía.
+        </p>
+        <ul class="mt-6 space-y-4">
+          <li class="flex items-center">
+            <i class="fa-solid fa-check-circle text-blue-600 text-xl sm:text-2xl mr-3"></i>
+            <span class="text-base sm:text-lg text-gray-700">Registro fácil de ingresos y egresos.</span>
+          </li>
+          <li class="flex items-center">
+            <i class="fa-solid fa-chart-line text-blue-600 text-xl sm:text-2xl mr-3"></i>
+            <span class="text-base sm:text-lg text-gray-700">Gráficos interactivos para visualizar tu dinero.</span>
+          </li>
+          <li class="flex items-center">
+            <i class="fa-solid fa-piggy-bank text-blue-600 text-xl sm:text-2xl mr-3"></i>
+            <span class="text-base sm:text-lg text-gray-700">Planes personalizados de ahorro.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex justify-center md:justify-end w-full">
+        <img src="./assets/img/beneficios.webp" alt="Gestión financiera"
+          class="max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl h-auto object-cover rounded-xl shadow-xl hover:shadow-2xl transition duration-300 md:hover:scale-110">
+      </div>
+    </section>
+
+    <!-- Sección Testimonios -->
+    <section id="testimonials" class="py-16 px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-800">Lo que dicen nuestros usuarios</h2>
+      <div class="relative mt-6 max-w-7xl mx-auto">
+        <div id="testimonial-slider" class="overflow-hidden">
+          <div class="flex transition-transform duration-500 ease-in-out">
+            <div class="w-full flex-shrink-0 text-center px-6">
+              <p class="text-xl sm:text-2xl font-semibold text-yellow-500">★★★★★</p>
+              <blockquote class="mt-4 text-base sm:text-lg md:text-xl italic text-gray-700">"Gracias a esta plataforma,
+                he podido ahorrar un 30% más cada mes."</blockquote>
+              <div class="mt-4 flex justify-center items-center space-x-3">
+                <img class="w-12 h-12 rounded-full" src="./assets/img/men1.jpg" alt="Foto de usuario">
+                <p class="text-lg sm:text-xl font-semibold text-gray-900">
+                  Juan López | <span class="text-gray-500 text-sm sm:text-base">Emprendedor</span>
+                </p>
+              </div>
+            </div>
+            <div class="w-full flex-shrink-0 text-center px-6">
+              <p class="text-xl sm:text-2xl font-semibold text-yellow-500">★★★★★</p>
+              <blockquote class="mt-4 text-base sm:text-lg md:text-xl italic text-gray-700">
+                "Me encanta lo fácil que es registrar mis gastos y visualizar mis finanzas."
+              </blockquote>
+              <div class="mt-4 flex justify-center items-center space-x-3">
+                <img class="w-12 h-12 rounded-full" src="./assets/img/women2.jpg" alt="Foto de usuario">
+                <p class="text-lg sm:text-xl font-semibold text-gray-900">
+                  María Fernández | <span class="text-gray-500 text-sm sm:text-base">Contadora</span>
+                </p>
+              </div>
+            </div>
+            <div class="w-full flex-shrink-0 text-center px-6">
+              <p class="text-xl sm:text-2xl font-semibold text-yellow-500">★★★★★</p>
+              <blockquote class="mt-4 text-base sm:text-lg md:text-xl italic text-gray-700">
+                "La mejor herramienta para llevar el control de mis ingresos y egresos."
+              </blockquote>
+              <div class="mt-4 flex justify-center items-center space-x-3">
+                <img class="w-12 h-12 rounded-full" src="./assets/img/men3.jpg" alt="Foto de usuario">
+                <p class="text-lg sm:text-xl font-semibold text-gray-900">
+                  Carlos Méndez | <span class="text-gray-500 text-sm sm:text-base">Ingeniero</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Botones de Navegación -->
+        <div class="flex justify-center mt-6 space-x-6">
+          <button id="prev-btn"
+            class="p-2 text-3xl sm:text-4xl md:text-5xl font-bold text-gray-700 hover:text-black transition cursor-pointer">
+            ←
+          </button>
+          <button id="next-btn"
+            class="p-2 text-3xl sm:text-4xl md:text-5xl font-bold text-gray-700 hover:text-black transition cursor-pointer">
+            →
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- Seccion Llamada a la Acción -->
+    <section id="call-to-action" class="py-16 px-8 bg-gradient-to-b from-gray-100 to-gray-50 text-center">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-800">
+          Empieza a gestionar tu dinero hoy
+        </h2>
+        <p class="mt-4 text-lg sm:text-2xl text-gray-700">
+          Regístrate ahora y toma el control de tus finanzas personales de manera fácil y rápida.
+        </p>
+        <div class="mt-6 flex justify-center">
+          <a href="./pages/register.html" class="bg-blue-700 text-white px-8 py-4 text-lg sm:text-xl font-semibold rounded-lg 
+                    shadow-lg hover:bg-blue-800 hover:scale-105 hover:shadow-xl transition-all duration-300">
+            Regístrate gratis
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-blue-800 text-white py-10">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between text-center md:text-left">
+
+      <!-- Logo y Nombre -->
+      <div class="flex flex-col items-center md:items-start">
+        <div class="flex items-center space-x-3">
+          <img src="./assets/img/logo.png" alt="Yapay Wallet Logo" class="h-10 w-auto">
+          <p class="text-xl font-bold">Yapay Wallet</p>
+        </div>
+        <p class="mt-2 text-gray-300 text-sm max-w-sm">Tu herramienta confiable para gestionar tus finanzas personales
+          con
+          facilidad.</p>
+      </div>
+
+      <!-- Redes Sociales -->
+      <div class="mt-6 md:mt-0 flex space-x-6">
+        <a href="https://www.facebook.com" class="text-gray-300 hover:text-white transition text-2xl">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a href="https://x.com/?lang=es" class="text-gray-300 hover:text-white transition text-2xl">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+        <a href="https://www.instagram.com/" class="text-gray-300 hover:text-white transition text-2xl">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com/" class="text-gray-300 hover:text-white transition text-2xl">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Línea divisoria y copyright -->
+    <div class="mt-8 pt-6 border-t border-blue-700 text-center">
+      <p class="text-gray-300 text-sm">
+        © 2025 Yapay Wallet. Todos los derechos reservados.
+      </p>
+      <div class="mt-2 flex justify-center space-x-4 text-gray-300 text-xs">
+        <a href="#" class="hover:text-white transition-colors">Términos</a>
+        <a href="#" class="hover:text-white transition-colors">Privacidad</a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+
+    <title>Transacciones</title>
+  </head>
+  <body>
+    <div class="h-full flex flex-col md:flex-row">
+      <!-- Sidebar -->
+      <aside
+        id="sidebar"
+        class="barra-lateral flex-none bg-primary text-white p-5 space-y-6 overflow-hidden hidden md:block"
+      >
+        <div class="nombre-pagina">
+          <i id="wallet" class="bi bi-wallet">
+            <img
+              src="../assets/img/Logo-yapay-alpha-v2.png"
+              alt="Logo-yapay"
+              class="h-10 w-auto mr-3"
+            />
+          </i>
+          <span class="font-bold text-lg text-white" id="titulo-pagina">
+            Yapay Wallet
+          </span>
+        </div>
+        <div class="flex text-secondary mt-6">
+          <div class="w-12 flex justify-center items-center">
+            <i class="text-lg fa-solid fa-user"></i>
+          </div>
+          <div class="flex flex-col flex-1">
+            <span id="username" class="nombre font-semibold"></span>
+            <span id="email" class="email text-sm"></span>
+          </div>
+        </div>
+        <div class="linea"></div>
+
+        <nav class="navegacion">
+          <ul class="text-secondary">
+            <li>
+              <a href="./dashboard.html">
+                <i class="fa-solid fa-chart-simple"></i>
+                <span class="text-menu text-lg">Dashboard</span>
+              </a>
+            </li>
+            <li>
+              <a id="pageTransactions" href="./transactions.html">
+                <i class="fa-solid fa-plus"></i>
+                <span class="text-menu text-lg">Transacción</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <span class="text-menu text-lg">Alertas</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-solid fa-gear"></i>
+                <span class="text-menu text-lg">Configuración</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="linea"></div>
+        <div class="flex text-secondary mt-6 text-lg">
+          <a href="./login.html" class="w-full text-secondary hover:text-white">
+            <i
+              class="h-11 w-12.5 text-center fa-solid fa-right-from-bracket"
+            ></i>
+            <span class="text-menu text-md">Salir</span>
+          </a>
+        </div>
+      </aside>
+
+      <!-- Contenido -->
+      <main class="p-6 overflow-y-hidden flex flex-col flex-1">
+        <!-- Titulo -->
+        <h1
+          class="text-3xl font-bold text-center my-6 bg-[#2f2cd8] text-white py-3 rounded-2xl"
+        >
+          Historial de Transacciones
+        </h1>
+
+        <!-- Contenedor de Balance Total y Boton -->
+        <div class="flex justify-end mb-5">
+          <!-- Boton Agregar Transacciones -->
+          <div>
+            <button
+              class="bg-[#2f2cd8] text-white py-1 px-2 hover:bg-blue-600 font-bold rounded-full shadow-lg cursor-pointer"
+              id="openModal"
+            >
+              Agregar transacción
+            </button>
+          </div>
+        </div>
+        <!-- Tabla de transacciones -->
+        <section class="flex flex-1 gap-3">
+          <div
+            class="flex-1 p-4 bg-white border border-gray-200 rounded-lg shadow-[0px_6px_15px_rgba(47,44,216,0.25)]"
+          >
+            <h2 class="text-lg font-bold text-text mb-1">
+              Registro de transacciones
+            </h2>
+            <div
+              id="table-transactions-history"
+              style="height: 90%"
+              class="min-h-[250px]"
+            ></div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Modal Formulario de Transacciones -->
+      <!-- Fondo oscuro del modal -->
+      <div
+        id="modalOverlay"
+        class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 opacity-0 pointer-events-none transition-opacity duration-300"
+      >
+        <!-- Contenido del modal con animación -->
+        <div
+          id="modalContent"
+          class="bg-white p-6 rounded-lg shadow-lg opacity-0 scale-95 transform transition-all duration-300 w-auto"
+        >
+          <!--Contenido del modal -->
+          <div
+            id="modalFormTransaction"
+            class="flex justify-center items-center inset-0 gap-15 mb-10"
+          >
+            <!--Titulo del formulario -->
+            <div class="w-[500px] rounded-md m-auto" id="formMain">
+              <nav class="flex bg-[#ff2326] rounded-t-md mx-3" id="nav_tab">
+                <h2
+                  id="tabGastos"
+                  class="px-5 py-3 w-1/2 text-center cursor-pointer font-bold text-xl rounded-br-lg rounded-tl-lg"
+                >
+                  Gastos
+                </h2>
+                <h2
+                  id="tabIngresos"
+                  class="px-5 py-3 w-1/2 text-center cursor-pointer bg-white rounded-bl-lg rounded-tr-lg shadow-2xs text-xl font-bold"
+                >
+                  Ingresos
+                </h2>
+              </nav>
+
+              <!--Contenido del formulario de Gastos-->
+              <form
+                id="formGastos"
+                class="p-4 border-2 border-[#ff2326] rounded-b-lg bg-white shadow-lg mx-3"
+              >
+                <div class="mb-2">
+                  <label for="date" class="block font-bold">Fecha</label>
+                  <input
+                    type="date"
+                    class="w-full p-2 border rounded-md"
+                    name="date"
+                    required
+                  />
+                </div>
+
+                <div class="mb-2">
+                  <label for="type" class="block font-bold">Categoria</label>
+                  <select name="category" class="w-full p-2 border rounded-md">
+                    <option>Alimentación</option>
+                    <option>Servicios básicos</option>
+                    <option>Transporte</option>
+                    <option>Salud e Higiene</option>
+                    <option>Educación</option>
+                    <option>Entretenimiento</option>
+                    <option>Moda y Belleza</option>
+                    <option>Otros</option>
+                  </select>
+                </div>
+
+                <div class="mb-2">
+                  <label for="amount" class="block font-bold">Monto</label>
+                  <input
+                    type="number"
+                    name="amount"
+                    class="w-full p-2 border rounded-md"
+                    required
+                  />
+                </div>
+
+                <div class="mb-2">
+                  <label for="description" class="block font-bold">
+                    Descripción
+                  </label>
+                  <input
+                    type="text"
+                    name="description"
+                    class="w-full p-2 border rounded-md"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  class="bg-red-600 text-white p-2 rounded-md w-full mt-2 border font-bold cursor-pointer hover:bg-[#ff2326]"
+                  id="btnGasto"
+                >
+                  Agregar Gasto
+                </button>
+              </form>
+
+              <!--Contenido del formulario Ingresos -->
+              <form
+                id="formIngresos"
+                class="p-4 hidden border-2 rounded-b-lg bg-white shadow-lg mx-3"
+              >
+                <!--Input Fecha -->
+                <div class="mb-2">
+                  <label for="date" class="block font-bold">Fecha</label>
+                  <input
+                    type="date"
+                    class="w-full p-2 border rounded-md"
+                    name="date"
+                    required
+                  />
+                </div>
+                <!--Input Categoria -->
+                <div class="mb-2">
+                  <label for="type" class="block font-bold">Categoria</label>
+                  <select name="category" class="w-full p-2 border rounded-md">
+                    <option>Salario Principal</option>
+                    <option>Bonos y Pensiones</option>
+                    <option>Intereses</option>
+                    <option>Negocio Independiente</option>
+                    <option>Regalos y donaciones</option>
+                    <option>Otros</option>
+                  </select>
+                </div>
+                <!--Input Amount -->
+                <div class="mb-2">
+                  <label for="amount" class="block font-bold">Monto</label>
+                  <input
+                    type="number"
+                    name="amount"
+                    class="w-full p-2 border rounded-md"
+                    required
+                  />
+                </div>
+                <!--Input Descripción -->
+                <div class="mb-2">
+                  <label for="description" class="block font-bold">
+                    Descripción
+                  </label>
+                  <input
+                    type="text"
+                    name="description"
+                    class="w-full p-2 border rounded-md"
+                  />
+                </div>
+                <!--Boton Submit -->
+                <button
+                  type="submit"
+                  class="bg-[#00a254] text-white p-2 rounded-md w-full mt-2 font-bold cursor-pointer hover:bg-green-500"
+                  id="btnIngreso"
+                >
+                  Agregar Ingreso
+                </button>
+              </form>
+            </div>
+          </div>
+          <!--Boton Cerrar Modal -->
+          <div class="mt-4 flex justify-end">
+            <button
+              id="closeModal"
+              class="bg-primary text-white px-4 py-2 rounded-md"
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Modal Confirmacion para Eliminar -->
+      <!-- Fondo oscuro del modal -->
+      <div
+        id="modalOverlay"
+        class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 opacity-0 pointer-events-none transition-opacity duration-300"
+      >
+        <!-- Modal para eliminar ingreso o gasto -->
+        <div
+          id="modalEliminar"
+          class="fixeds inset-0 items-center justify-center hidden"
+        >
+          <div
+            class="bg-black z-10 text-white text-lg font-semibold p-3 rounded-3xl shadow-2xl"
+          >
+            <h2 class="mx-3 my-2 text-[20px]">
+              ¿Desea eliminar esta transacción?
+            </h2>
+            <div class="flex items-center justify-between mx-4 mb-2">
+              <button
+                class="px-3 py-1 mt-2 rounded-full bg-red-600 shadow-md cursor-pointer"
+                id="btnEliminar"
+              >
+                Eliminar
+              </button>
+              <button
+                class="px-3 py-1 mt-2 rounded-full bg-blue-600 shadow-md cursor-pointer"
+                id="btnCancelar"
+              >
+                Cancelar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer responsivo -->
+      <footer class="w-full bg-primary md:hidden">
+        <nav class="flex justify-around items-center py-3 text-white text-xl">
+          <a href="dashboard.html" class="fa-solid fa-chart-simple"></a>
+          <a href="transactions.html" class="fa-solid fa-plus"></a>
+          <i>
+            <img
+              src="../assets/img/Logo-yapay-alpha-v2.png"
+              alt="Logo-yapay"
+              class="h-7 w-auto mr-3"
+            />
+          </i>
+          <a href="dashboard.html" class="fa-solid fa-circle-exclamation"></a>
+          <a href="dashboard.html" class="fa-solid fa-gear"></a>
+        </nav>
+      </footer>
+    </div>
+  </body>
+</html>
