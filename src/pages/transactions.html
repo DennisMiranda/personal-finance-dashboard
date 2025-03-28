@@ -12,15 +12,20 @@
       >
         Formulario de Gastos e Ingresos
       </h1>
+      <div class="w-full">
+        <button
+          class="flex text-center m-auto mb-4 bg-green-700 text-white px-5 py-4 text-3xl font-bold rounded-full shadow-lg cursor-pointer active:bg-green-600"
+          id="btnTransaction"
+        >
+          Agregar transacción
+        </button>
+      </div>
 
-      <section class="transactionsForm">
-        <div class="flex items-center gap-15 mb-10">
-          <img
-            src="../assets/img/image.png"
-            alt=""
-            class="w-[40%] h-[40%] hidden md:block"
-          />
-          <div class="w-full shadow-2xl rounded-md" id="formMain">
+      <section class="hidden" id="modalFormTransaction">
+        <div
+          class="flex justify-center items-center inset-0 gap-15 mb-10 fixed"
+        >
+          <div class="w-[500px] rounded-md m-auto" id="formMain">
             <nav class="flex bg-[#ff2326] rounded-t-md" id="nav_tab">
               <h2
                 id="tabGastos"
@@ -37,7 +42,7 @@
             </nav>
             <form
               id="formGastos"
-              class="p-4 border-2 border-[#ff2326] rounded-b-lg"
+              class="p-4 border-2 border-[#ff2326] rounded-b-lg bg-white shadow-lg"
             >
               <div class="mb-2">
                 <label for="date" class="block font-bold">Fecha</label>
@@ -85,14 +90,17 @@
 
               <button
                 type="submit"
-                class="bg-[#ff2326] text-white p-2 rounded-md w-full mt-2 border font-bold"
+                class="bg-[#ff2326] text-white p-2 rounded-md w-full mt-2 border font-bold cursor-pointer"
                 id="btnGasto"
               >
                 Agregar Gasto
               </button>
             </form>
 
-            <form id="formIngresos" class="p-4 hidden border-2 rounded-b-lg">
+            <form
+              id="formIngresos"
+              class="p-4 hidden border-2 rounded-b-lg bg-white shadow-lg"
+            >
               <div class="mb-2">
                 <label for="date" class="block font-bold">Fecha</label>
                 <input
@@ -137,12 +145,19 @@
 
               <button
                 type="submit"
-                class="bg-[#00a254] text-white p-2 rounded-md w-full mt-2 font-bold"
+                class="bg-[#00a254] text-white p-2 rounded-md w-full mt-2 font-bold cursor-pointer"
                 id="btnIngreso"
               >
                 Agregar Ingreso
               </button>
             </form>
+            <div class="flex w-full">
+              <button
+                class="btnCerrarFormulario bg-[#2f2cd8] text-white w-full p-2 rounded-md border font-bold my-3 mx-4 cursor-pointer m-auto"
+              >
+                Cerrar
+              </button>
+            </div>
           </div>
         </div>
       </section>

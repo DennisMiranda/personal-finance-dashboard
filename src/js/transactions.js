@@ -10,9 +10,18 @@ document.addEventListener('DOMContentLoaded', function () {
   const formMain = document.getElementById('formMain');
   const nav_tab = document.getElementById('nav_tab');
   const balance = document.getElementById('balance');
-  const modalEliminar = document.getElementById('modalEliminar');
-  const btnEliminar = document.getElementById('btnEliminar');
-  const btnCancelar = document.getElementById('btnCancelar');
+  const btnTransaction = document.getElementById('btnTransaction');
+  const modalFormTransaction = document.getElementById('modalFormTransaction');
+  const btnCerrarFormulario = document.querySelectorAll('.btnCerrarFormulario');
+
+  btnTransaction.addEventListener('click', function () {
+    modalFormTransaction.classList.remove('hidden');
+  });
+  btnCerrarFormulario.forEach((btnCerrar) => {
+    btnCerrar.addEventListener('click', function () {
+      modalFormTransaction.classList.add('hidden');
+    });
+  });
 
   tabGastos.addEventListener('click', function () {
     nav_tab.classList.remove('bg-[#00a254]');
