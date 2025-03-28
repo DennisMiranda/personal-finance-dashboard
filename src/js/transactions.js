@@ -1,4 +1,79 @@
-import { saveTransaction } from './utils/localstorage';
+import { sidebar } from './components/sidebar';
+import {
+  getUserData,
+  loadTransactions,
+  saveTransaction,
+} from './utils/localstorage';
+import { TransactionsTable } from './components/table';
+
+class TransactionsHistory {
+  constructor() {
+    this.transactions = loadTransactions();
+    this.table = null;
+  }
+
+  init() {
+    const { username, email } = getUserData();
+    document.getElementById('username').innerText = username;
+    document.getElementById('email').innerText = email;
+
+    formGastos.addEventListener('submit', (event) => {
+      event.preventDefault();
+      this.addTransaction('formGastos', 'Gasto');
+    });
+
+    formIngresos.addEventListener('submit', (event) => {
+      event.preventDefault();
+      this.addTransaction('formIngresos', 'Ingreso');
+    });
+
+    this.createTable();
+  }
+
+  createTable() {
+    // Renderizar las tablas con los datos filtrados
+    this.table = new TransactionsTable(
+      'table-transactions-history',
+      null,
+      this.transactions
+    );
+    this.table.show();
+  }
+
+  addTransaction(formId, type) {
+    const form = document.getElementById(formId);
+    const formData = new FormData(form);
+
+    let date = formData.get('date');
+    let category = formData.get('category');
+    let amount = Number(formData.get('amount'));
+    let description = formData.get('description');
+
+    //validando los campos del formulario esten llenos
+    if (date === '' || category === '' || amount === '') {
+      alert('Porfavor completar el formulario');
+      return;
+    }
+
+    const transaction = {
+      id: Date.now(),
+      date: date + 'T00:00:00',
+      category,
+      amount,
+      description,
+      type,
+    };
+
+    this.transactions.push(transaction);
+    this.table.update(this.transactions);
+    saveTransaction(transaction);
+
+    form.reset();
+  }
+}
+
+const transactionsHistory = new TransactionsHistory();
+transactionsHistory.init();
 
 document.addEventListener('DOMContentLoaded', function () {
   // Funcionalidad a los TAB de ingresos y gasto
@@ -6,19 +81,15 @@ document.addEventListener('DOMContentLoaded', function () {
   const formIngresos = document.getElementById('formIngresos');
   const tabGastos = document.getElementById('tabGastos');
   const tabIngresos = document.getElementById('tabIngresos');
+  const btnIngreso = document.getElementById('btnIngreso');
   const btnGasto = document.getElementById('btnGasto');
   const formMain = document.getElementById('formMain');
   const nav_tab = document.getElementById('nav_tab');
   const balance = document.getElementById('balance');
-  const btnTransaction = document.getElementById('btnTransaction');
   const modalFormTransaction = document.getElementById('modalFormTransaction');
   const fondoOscuro = document.getElementById('fondoOscuro');
   const btnCerrarFormulario = document.querySelectorAll('.btnCerrarFormulario');
 
-  btnTransaction.addEventListener('click', function () {
-    modalFormTransaction.classList.remove('hidden');
-    fondoOscuro.classList.remove('hidden');
-  });
   btnCerrarFormulario.forEach((btnCerrar) => {
     btnCerrar.addEventListener('click', function () {
       modalFormTransaction.classList.add('hidden');
@@ -62,162 +133,38 @@ document.addEventListener('DOMContentLoaded', function () {
     balanceIngreso = 0,
     balanceGasto = 0,
     balanceTotal = 0;
-  btnGasto.addEventListener('click', function () {
-    let dateGasto = document.getElementById('dateGasto').value;
-    let typeGasto = document.getElementById('typeGasto').value;
-    let montoGasto = Number(document.getElementById('montoGasto').value);
-    let descriptionGasto = document.getElementById('descriptionGasto').value;
 
-    //validando los campos del formulario esten llenos
-    if (dateGasto === '' || typeGasto === '' || montoGasto === '') {
-      alert('Porfavor completar el formulario');
-      return;
-    }
+  const openModal = document.getElementById('openModal');
+  const closeModal = document.getElementById('closeModal');
+  const modalOverlay = document.getElementById('modalOverlay');
+  const modalContent = document.getElementById('modalContent');
 
-    //Creando las filas y celdas de la tabla
-    const table = document.getElementById('table');
-    const fila = table.insertRow();
-
-    let celda_ID_Gasto = fila.insertCell(0);
-    let celda_dateGasto = fila.insertCell(1);
-    let celda_typeGasto = fila.insertCell(2);
-    let celda_montoGasto = fila.insertCell(3);
-    let celda_descriptionGasto = fila.insertCell(4);
-    let celda_eliminarGasto = fila.insertCell(5);
-
-    //Contador del ID
-    contGasto++;
-    let ID_Gasto = 'G - ' + contGasto;
-
-    //Dando valores a las celdas
-    celda_ID_Gasto.innerHTML = ID_Gasto;
-    celda_dateGasto.innerHTML = dateGasto;
-    celda_typeGasto.innerHTML = typeGasto;
-    celda_montoGasto.innerHTML = montoGasto;
-    celda_descriptionGasto.innerHTML = descriptionGasto;
-
-    saveTransaction({
-      id: ID_Gasto,
-      // Guardar fecha en formato ISO, sin zona horaria
-      date: dateGasto + 'T00:00:00',
-      category: typeGasto,
-      amount: montoGasto,
-      description: descriptionGasto,
-      type: 'Gasto',
-    });
-
-    //Dando estilo a algunas celdas
-    celda_montoGasto.classList.add('text-red-600');
-    celda_montoGasto.classList.add('font-bold');
-    celda_ID_Gasto.classList.add('text-red-600');
-    celda_ID_Gasto.classList.add('font-bold');
-
-    //creando el boton eliminar
-    let eliminarGasto = document.createElement('button');
-    eliminarGasto.textContent = '🗑️';
-
-    //Dando funcionalidad al boton eliminar
-    eliminarGasto.addEventListener('click', function () {
-      let confirmacion = confirm('¿Deseas eliminar esta transacción?');
-      if (confirmacion) {
-        let filaEliminada = this.closest('tr'); //obtengo la fila en la que apreto el boton eliminar.
-        let celdaGastoEliminado = Number(filaEliminada.cells[3].textContent);
-        fila.remove();
-        balanceGasto = balanceGasto - celdaGastoEliminado;
-        balance.innerHTML = '';
-        balanceTotal = balanceIngreso - balanceGasto;
-        balance.innerHTML = balanceTotal;
-      }
-    });
-    celda_eliminarGasto.appendChild(eliminarGasto);
-
-    document.getElementById('formGastos').reset();
-
-    //Mostrando el balance de ingresos y gastos
-    balanceGasto = balanceGasto + montoGasto;
-    balance.innerHTML = '';
-    balanceTotal = balanceIngreso - balanceGasto;
-    balance.innerHTML = balanceTotal;
+  // Función para abrir el modal con animación
+  openModal.addEventListener('click', () => {
+    modalOverlay.classList.remove('opacity-0', 'pointer-events-none');
+    modalContent.classList.remove('opacity-0', 'scale-95');
+    modalContent.classList.add('opacity-100', 'scale-100');
   });
 
-  //---------------------------------------------
-  //Obteniendo valores del formulario de INGRESOS
-  //---------------------------------------------
-  btnIngreso.addEventListener('click', function () {
-    let dateIngreso = document.getElementById('dateIngreso').value;
-    let typeIngreso = document.getElementById('typeIngreso').value;
-    let montoIngreso = Number(document.getElementById('montoIngreso').value);
-    let descriptionIngreso =
-      document.getElementById('descriptionIngreso').value;
+  // Función para cerrar el modal con animación
+  closeModal.addEventListener('click', () => {
+    modalContent.classList.remove('opacity-100', 'scale-100');
+    modalContent.classList.add('opacity-0', 'scale-95');
 
-    //validando los campos del formulario esten llenos
-    if (dateIngreso === '' || typeIngreso === '' || montoIngreso === '') {
-      alert('Porfavor completar el formulario');
-      return;
+    setTimeout(() => {
+      modalOverlay.classList.add('opacity-0', 'pointer-events-none');
+    }, 300); // Coincide con la duración de la animación
+  });
+
+  // Cerrar el modal al hacer clic fuera del contenido
+  modalOverlay.addEventListener('click', (event) => {
+    if (event.target === modalOverlay) {
+      modalContent.classList.remove('opacity-100', 'scale-100');
+      modalContent.classList.add('opacity-0', 'scale-95');
+
+      setTimeout(() => {
+        modalOverlay.classList.add('opacity-0', 'pointer-events-none');
+      }, 300);
     }
-
-    //Creando las filas y celdas de la tabla
-    const table = document.getElementById('table');
-    const fila = table.insertRow();
-
-    let celda_ID_Ingreso = fila.insertCell(0);
-    let celda_dateIngreso = fila.insertCell(1);
-    let celda_typeIngreso = fila.insertCell(2);
-    let celda_montoIngreso = fila.insertCell(3);
-    let celda_descriptionIngreso = fila.insertCell(4);
-    let celda_eliminarIngreso = fila.insertCell(5);
-
-    //Contador del ID
-    contIngreso++;
-    let ID_Ingreso = 'I - ' + contIngreso;
-
-    //Dando valores a las celdas
-    celda_ID_Ingreso.innerHTML = ID_Ingreso;
-    celda_dateIngreso.innerHTML = dateIngreso;
-    celda_typeIngreso.innerHTML = typeIngreso;
-    celda_montoIngreso.innerHTML = montoIngreso;
-    celda_descriptionIngreso.innerHTML = descriptionIngreso;
-
-    saveTransaction({
-      id: ID_Ingreso,
-      date: dateIngreso + 'T00:00:00',
-      category: typeIngreso,
-      amount: montoIngreso,
-      description: descriptionIngreso,
-      type: 'Ingreso',
-    });
-
-    celda_montoIngreso.classList.add('text-green-600');
-    celda_montoIngreso.classList.add('font-bold');
-    celda_ID_Ingreso.classList.add('text-Green-600');
-    celda_ID_Ingreso.classList.add('font-bold');
-
-    //creando el boton eliminar
-    let eliminarIngreso = document.createElement('button');
-    eliminarIngreso.textContent = '🗑️';
-
-    //Dando funcionalidad al boton eliminar
-    eliminarIngreso.addEventListener('click', function () {
-      let confirmacion = confirm('¿Deseas eliminar esta transacción?');
-      if (confirmacion) {
-        let filaEliminada = this.closest('tr'); //Obtengo la fila en la que se encuentra el boton eliminar.
-        let celdaIngresoEliminada = Number(filaEliminada.cells[3].textContent);
-        fila.remove();
-
-        balanceIngreso = balanceIngreso - celdaIngresoEliminada;
-        balance.innerHTML = '';
-        balanceTotal = balanceIngreso - balanceGasto;
-        balance.innerHTML = balanceTotal;
-      }
-    });
-    celda_eliminarIngreso.appendChild(eliminarIngreso);
-
-    document.getElementById('formIngresos').reset();
-
-    //Mostrando el balance de ingresos y gastos
-    balanceIngreso = balanceIngreso + montoIngreso;
-    balance.innerHTML = '';
-    balanceTotal = balanceIngreso - balanceGasto;
-    balance.innerHTML = balanceTotal;
   });
 });

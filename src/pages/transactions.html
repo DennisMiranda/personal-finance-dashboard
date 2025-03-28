@@ -17,7 +17,7 @@
         <div class="nombre-pagina">
           <i id="wallet" class="bi bi-wallet">
             <img
-              src="../assets/img/Logo-yapac-alpha-v2.png"
+              src="../assets/img/Logo-yapay-alpha-v2.png"
               alt="Logo-yapay"
               class="h-10 w-auto mr-3"
             />
@@ -157,14 +157,14 @@
                   <input
                     type="date"
                     class="w-full p-2 border rounded-md"
-                    id="dateGasto"
+                    name="date"
                     required
                   />
                 </div>
 
                 <div class="mb-2">
                   <label for="type" class="block font-bold">Categoria</label>
-                  <select id="typeGasto" class="w-full p-2 border rounded-md">
+                  <select name="category" class="w-full p-2 border rounded-md">
                     <option>Alimentación</option>
                     <option>Servicios básicos</option>
                     <option>Transporte</option>
@@ -180,7 +180,7 @@
                   <label for="amount" class="block font-bold">Monto</label>
                   <input
                     type="number"
-                    id="montoGasto"
+                    name="amount"
                     class="w-full p-2 border rounded-md"
                     required
                   />
@@ -192,7 +192,7 @@
                   </label>
                   <input
                     type="text"
-                    id="descriptionGasto"
+                    name="description"
                     class="w-full p-2 border rounded-md"
                   />
                 </div>
@@ -217,20 +217,18 @@
                   <input
                     type="date"
                     class="w-full p-2 border rounded-md"
-                    id="dateIngreso"
+                    name="date"
                     required
                   />
                 </div>
                 <!--Input Categoria -->
                 <div class="mb-2">
                   <label for="type" class="block font-bold">Categoria</label>
-                  <select id="typeIngreso" class="w-full p-2 border rounded-md">
+                  <select name="category" class="w-full p-2 border rounded-md">
                     <option>Salario Principal</option>
-                    <option>Bonos y pensiones</option>
-                    <option>Rentas</option>
+                    <option>Bonos y Pensiones</option>
                     <option>Intereses</option>
-                    <option>Dividendos</option>
-                    <option>Negocios Independ.</option>
+                    <option>Negocio Independiente</option>
                     <option>Regalos y donaciones</option>
                     <option>Otros</option>
                   </select>
@@ -240,7 +238,7 @@
                   <label for="amount" class="block font-bold">Monto</label>
                   <input
                     type="number"
-                    id="montoIngreso"
+                    name="amount"
                     class="w-full p-2 border rounded-md"
                     required
                   />
@@ -252,7 +250,7 @@
                   </label>
                   <input
                     type="text"
-                    id="descriptionIngreso"
+                    name="description"
                     class="w-full p-2 border rounded-md"
                   />
                 </div>
@@ -319,7 +317,7 @@
           <a href="transactions.html" class="fa-solid fa-plus"></a>
           <i>
             <img
-              src="../assets/img/Logo-yapac-alpha-v2.png"
+              src="../assets/img/Logo-yapay-alpha-v2.png"
               alt="Logo-yapay"
               class="h-7 w-auto mr-3"
             />

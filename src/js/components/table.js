@@ -1,9 +1,55 @@
 import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
+import { saveTransactions } from '../utils/localstorage';
 import { convertDate } from '../utils/convertDate';
 // Register all Community features
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 import { createGrid, themeQuartz } from 'ag-grid-community';
+
+class TransactionActionComponent {
+  eGui;
+  deleteButton;
+  eventListener;
+  gridApi;
+
+  init(props) {
+    this.gridApi = props.api;
+    this.eGui = document.createElement('div');
+    this.eGui.className = 'h-full w-full flex justify-center';
+    const deleteButton = document.createElement('button');
+    deleteButton.className = 'fa-solid fa-trash text-red-500 cursor-pointer';
+
+    // La fila se elimina por medio de su índice actual
+    this.eventListener = () => this.deleteRow(props.node.rowIndex);
+    deleteButton.addEventListener('click', this.eventListener);
+    this.eGui.appendChild(deleteButton);
+  }
+
+  getGui() {
+    return this.eGui;
+  }
+
+  refresh() {
+    return true;
+  }
+
+  destroy() {
+    if (this.deleteButton) {
+      this.deleteButton.removeEventListener('click', this.eventListener);
+    }
+  }
+
+  deleteRow(id) {
+    // Obtener todos los datos de la tabla
+    const rowData = this.gridApi.getGridOption('rowData');
+    // Eliminar la fila seleccionada
+    rowData.splice(id, 1);
+    // Actualizar los datos de la tabla
+    this.gridApi.setGridOption('rowData', rowData);
+    // Guardar en el localstorage
+    saveTransactions(rowData);
+  }
+}
 
 const iconMap = {
   Alimentación: { icon: 'fa-utensils', color: 'bg-orange-500' },
@@ -13,11 +59,11 @@ const iconMap = {
   Educación: { icon: 'fa-graduation-cap', color: 'bg-blue-500' },
   Entretenimiento: { icon: 'fa-film', color: 'bg-purple-500' },
   'Moda y Belleza': { icon: 'fa-tshirt', color: 'bg-pink-500' },
-  'Salario principal': {
+  'Salario Principal': {
     icon: 'fa-solid fa-briefcase',
     color: 'bg-blue-700',
   },
-  'Bonos y pensiones': { icon: 'fa-solid fa-coins', color: 'bg-orange-500' },
+  'Bonos y Pensiones': { icon: 'fa-solid fa-coins', color: 'bg-orange-500' },
   Rentas: { icon: 'fa-solid fa-house', color: 'bg-purple-500' },
   Intereses: { icon: 'fa-solid fa-piggy-bank', color: 'bg-green-500' },
   Dividendos: { icon: 'fa-solid fa-dollar-sign', color: 'bg-red-500' },
@@ -25,14 +71,19 @@ const iconMap = {
     icon: 'fa-solid fa-store',
     color: 'bg-yellow-500',
   },
-  'Regalos y donaciones': { icon: 'fa-solid fa-gift', color: 'bg-gray-600' },
+  'Regalos y Donaciones': { icon: 'fa-solid fa-gift', color: 'bg-gray-600' },
 };
 
-const columnsHeaderNames = {
-  date: 'Fecha',
-  category: 'Categoría',
-  amount: 'Monto',
-  description: 'Descripción',
+const columnsOptions = {
+  date: { label: 'Fecha' },
+  category: { label: 'Categoría', cellRenderer: CategoryRenderer },
+  amount: { label: 'Monto', cellStyle: { textAlign: 'right' } },
+  description: { label: 'Descripción' },
+  type: { label: 'Tipo' },
+  actions: {
+    label: 'Acciones',
+    cellRenderer: TransactionActionComponent,
+  },
 };
 
 function CategoryRenderer(params) {
@@ -61,7 +112,7 @@ class Table {
   }
 
   show() {
-    const myGridElement = document.querySelector(this.id);
+    const myGridElement = document.getElementById(this.id);
     this.gridApi = createGrid(myGridElement, this.options);
   }
 }
@@ -78,13 +129,21 @@ class TransactionsTable extends Table {
       this.columns = [];
       return;
     }
-    this.columns = Object.keys(this.transactions[0])
-      .filter((key) => !['id', 'type'].includes(key))
+
+    const keys = Object.keys(this.transactions[0]);
+    let exludedKeys = ['id', 'type', 'actions'];
+    if (!this.type) {
+      exludedKeys = [];
+      keys.push('actions');
+    }
+
+    this.columns = keys
+      .filter((key) => !exludedKeys.includes(key))
       .map((key) => ({
         field: key,
-        headerName: columnsHeaderNames[key],
-        cellRenderer: key === 'category' ? CategoryRenderer : undefined,
-        cellStyle: key === 'amount' ? { textAlign: 'right' } : undefined,
+        headerName: columnsOptions[key]?.label,
+        cellRenderer: columnsOptions[key]?.cellRenderer,
+        cellStyle: columnsOptions[key],
         valueFormatter: (params) => {
           if (key === 'amount') {
             return (+params.value).toFixed(2);
@@ -104,7 +163,9 @@ class TransactionsTable extends Table {
 
   show() {
     this.setColumns();
-    this.filterByType(this.transactions);
+    if (this.type) {
+      this.filterByType(this.transactions);
+    }
 
     this.options = {
       theme: themeQuartz.withParams({ wrapperBorder: false }),
@@ -119,7 +180,9 @@ class TransactionsTable extends Table {
   }
 
   update(transactions) {
-    this.filterByType(transactions);
+    if (this.type) {
+      this.filterByType(transactions);
+    }
     this.gridApi.setGridOption('rowData', this.transactions);
   }
 }
